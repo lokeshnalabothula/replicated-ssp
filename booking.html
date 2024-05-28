@@ -1,0 +1,698 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<!-- saved from url=(0076)https://sp.srmist.edu.in/srmiststudentportal/students/template/HRDSystem.jsp -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+         
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>dashboard</title>
+        <link href="./booking_files/mainstyle.css" rel="stylesheet">
+        <link href="./booking_files/all.css" rel="stylesheet" type="text/css">
+        <link href="./booking_files/customstyle.css" rel="stylesheet">
+        <link href="https://sp.srmist.edu.in/srmiststudentportal/resources/Image/college_icon.jpeg" type="Image/x-icon" rel="icon">
+        <script src="./booking_files/jquery.min.js.download"></script>
+        <script>
+            var appURL = "";
+            var imageName;
+            var d;
+            $(function () {
+                (function (global) {
+
+                    if (typeof (global) === "undefined")
+                    {
+                        throw new Error("window is undefined");
+                    }
+
+                    var _hash = "!";
+                    var noBackPlease = function () {
+                        global.location.href += "#";
+                        // making sure we have the fruit available for juice....
+                        // 50 milliseconds for just once do not cost much (^__^)
+                        global.setTimeout(function () {
+                            global.location.href += "!";
+                        }, 50);
+                    };
+                    // Earlier we had setInerval here....
+                    global.onhashchange = function () {
+                        if (global.location.hash !== _hash) {
+                            global.location.hash = _hash;
+                        }
+                    };
+                    global.onload = function () {
+
+                        noBackPlease();
+                        // disables backspace on page except on input fields and textarea..
+                        document.body.onkeydown = function (e) {
+                            var elm = e.target.nodeName.toLowerCase();
+                            if (e.which === 8 && (elm !== 'input' && elm !== 'textarea')) {
+                                e.preventDefault();
+                            }
+                            // stopping event bubbling up the DOM tree..
+                            e.stopPropagation();
+                        };
+                    };
+                })(window);
+                $("#hidchkHostelOpen").val('2024-02-24 11:00:00');
+                funShow(26, '../../students/transaction/HostelFace.jsp');
+            });
+
+            function funSetFormId(arg) {
+                if (arg > 100) {
+                    $('#logoutModal').modal('show');
+                } else {
+                    $("#hdnFormId").val(arg);
+                    $('#userHomePage').attr("action", "../../students/template/HRDSystem.jsp");
+                    $('#userHomePage').submit();
+                }
+            }
+
+            function funShow(arg, argURL) {
+                appParameter = [];
+                appParameter.push({name: "iden", value: arg});
+                appParameter.push({name: "filter", value: ""});
+                $(".navmenu").removeClass("active");
+                $("#listId" + arg).addClass("active");
+                if (arg < 100) {
+                //     $("#divMainDetails").html("<img src='../../resources/Image/wait.gif' alt='Loading... Please Wait!'>");
+                //     $("#divMainDetails").show();
+                //     $.post(argURL, appParameter, function (data) {
+                //         $("#divMainDetails").html(data);
+                //         $("#divMainDetails").show();
+                //     }, "html").fail(function (jqXHR, textStatus, errorThrown) {
+                //         alert(jqXHR.responseText);
+                //     })
+                } else {
+                    $('#logoutModal').modal('show');
+                }
+            }
+        </script>
+    </head>
+    <body class="nav-fixed">
+        <form id="userHomePage" name="userHomePage" method="post">
+            <nav class="topnav navbar navbar-expand shadow justify-content-between justify-content-sm-start navbar-light bg-white" id="sidenavAccordion">
+                <button class="btn btn-icon btn-transparent-dark order-1 order-lg-0 mr-lg-2" id="sidebarToggle"><i class="fa fa-bars"></i></button>
+                <a class="navbar-brand" href="dashboard.html">
+                    <img src="./booking_files/srmist.png" alt="SRM Logo"> 
+                    <br><font style="font-size: 9pt;">Student Portal</font>
+                </a>
+                <span class="text-custom d-none d-sm-block"><b>Faculty of Engineering and Technology, Kattankulathur</b></span>
+
+                <ul class="navbar-nav align-items-center ml-auto text-center">
+
+                    <a style="cursor:pointer;">
+                        <span class="dropdown-item" data-toggle="modal" data-target="#logoutModal">
+                            <div class="dropdown-item-icon"><i class="fas fa-sign-out-alt"></i></div>
+                            Logout
+                        </span>
+                    </a>
+                </ul>
+            </nav>
+
+            <div id="layoutSidenav">
+                <div id="layoutSidenav_nav">
+                    <nav class="sidenav shadow-right sidenav-light">
+                        <div class="sidenav-menu">
+                            <div class="nav accordion" id="accordionSidenav">
+
+                                <!-- Sidenav Heading -->
+                                <!--                                <div class="sidenav-menu-heading">Menus</div>-->
+
+                                
+                                <a id="listId1" class="nav-link navmenu" style="cursor:pointer;" href="dashboard.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-tachometer-alt"></i></div>
+                                        Dashboard 
+                                </a>
+                                
+                                <a id="listId69" class="nav-link navmenu" style="cursor:pointer;" href="feesdetails.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Fee Payment 
+                                </a>
+                                
+                                <a id="listId17" class="nav-link navmenu" style="cursor:pointer;" href="personaldetails.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-user"></i></div>
+                                        Personal Details 
+                                </a>
+                                
+                                <a id="listId29" class="nav-link navmenu" style="cursor:pointer;" href="scholarship.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Scholarship Renewal Process 
+                                </a>
+                                
+                                <a id="listId7" class="nav-link navmenu" style="cursor:pointer;" href="courselist.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-book"></i></div>
+                                        Course List 
+                                </a>
+                                
+                                <a id="listId8" class="nav-link navmenu" style="cursor:pointer;" href="grade.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Grade / Mark &amp; Credit 
+                                </a>
+                                
+                                <a id="listId24" class="nav-link navmenu" style="cursor:pointer;" href="provisional.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Exam Provisional Results 
+                                </a>
+                                
+                                <a id="listId27" class="nav-link navmenu" style="cursor:pointer;" href="revaluation.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Exam Revaluation Results 
+                                </a>
+                                
+                                <a id="listId9" class="nav-link navmenu" style="cursor:pointer;" href="attendance.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-calculator"></i></div>
+                                        Attendance Details 
+                                </a>
+                                
+                                <a id="listId10" class="nav-link navmenu" style="cursor:pointer;" href="timetable.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-clock"></i></div>
+                                        Timetable 
+                                </a>
+                                
+                                <a id="listId13" class="nav-link navmenu" style="cursor:pointer;" href="internals.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-server"></i></div>
+                                        Internal Mark Details 
+                                </a>
+                                
+                                <a id="listId14" class="nav-link navmenu" style="cursor:pointer;" href="booking.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-bed"></i></div>
+                                        Hostel Booking 
+                                </a>
+                                
+                                <a id="listId11" class="nav-link navmenu" style="cursor:pointer;" href="details.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-bed"></i></div>
+                                        Hostel Details 
+                                </a>
+                                
+                                <a id="listId12" class="nav-link navmenu" style="cursor:pointer;" href="tdetails.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-bus"></i></div>
+                                        Transport Details 
+                                </a>
+                                
+                                <a id="listId3" class="nav-link navmenu" style="cursor:pointer;" href="fdetails.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-receipt"></i></div>
+                                        Finance Details 
+                                </a>
+                                
+                                <a id="listId5" class="nav-link navmenu" style="cursor:pointer;" href="noticeboard.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-server"></i></div>
+                                        Notice Board 
+                                </a>
+                                
+                                <a id="listId21" class="nav-link navmenu" style="cursor:pointer;" href="ABC.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-book"></i></div>
+                                        ABC Entry Request 
+                                </a>
+                                
+                                <a id="listId22" class="nav-link navmenu" style="cursor:pointer;" href="tbooking.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-solid fa-bus"></i></div>
+                                        Transport Booking 
+                                </a>
+                                
+                                <a id="listId42" class="nav-link navmenu" style="cursor:pointer;" href="hallticket.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Exam HallTicket 
+                                </a>
+                                
+                                <a id="listId46" class="nav-link navmenu" style="cursor:pointer;" href="photofordegree.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Photo for Degree certificate 
+                                </a>
+                                
+                                <a id="listId44" class="nav-link navmenu" style="cursor:pointer;" href="summerterm.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-envelope"></i></div>
+                                        Summer Term / Compensatory Registration  
+                                </a>
+                                
+                                <a id="listId49" class="nav-link navmenu" style="cursor:pointer;" href="scribe.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Scribe Request 
+                                </a>
+                                
+                                <a id="listId54" class="nav-link navmenu" style="cursor:pointer;" href="review.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Review/Revaluation/Retotaling Registration 
+                                </a>
+                                
+                                <a id="listId57" class="nav-link navmenu" style="cursor:pointer;" href="namechange.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Name Change - Gazette 
+                                </a>
+                                
+                                <a id="listId74" class="nav-link navmenu" style="cursor:pointer;" href="community.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-file"></i></div>
+                                        Community Certificate 
+                                </a>
+                                
+                                <a id="listId83" class="nav-link navmenu" style="cursor:pointer;" href="placement.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Placement Insight Dashboard 
+                                </a>
+                                
+                                <a class="nav-link" data-toggle="modal" data-target="#logoutModal">
+                                    <div class="nav-link-icon"><i class="fas fa-sign-out-alt"></i></div>
+                                    Logout
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Sidenav Footer-->
+                        <div class="sidenav-footer">
+                            <div class="sidenav-footer-content">
+                                <div class="sidenav-footer-subtitle">RA2312703010014</div>
+                                <div class="sidenav-footer-subtitle">SHAIK SHIZA</div>
+                            </div>
+                            <input type="hidden" style="color:white;" id="hidchkHostelOpen" name="hidchkHostelOpen" size="10" value="2024-02-24 11:00:00">
+                        </div>
+                    </nav>
+                </div>
+                <div id="layoutSidenav_content">
+                    <main>
+                        <div id="divMainDetails" style="">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+    body{
+        margin-top:20px;
+    }
+    .timeline-steps {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+
+    }
+
+    .timeline-steps .timeline-step {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        margin: 1rem
+    }
+
+    @media (min-width:768px) {
+        .timeline-steps .timeline-step:not(:last-child):after {
+            content: "";
+            display: block;
+            border-top: .25rem dotted #3b82f6;
+            width: 3.46rem;
+            position: absolute;
+            left: 7.5rem;
+            top: .3125rem
+        }
+        .timeline-steps .timeline-step:not(:first-child):before {
+            content: "";
+            display: block;
+            border-top: .25rem dotted #3b82f6;
+            width: 3.8125rem;
+            position: absolute;
+            right: 7.5rem;
+            top: .3125rem
+        }
+    }
+
+    .timeline-steps .timeline-content {
+        width: 10rem;
+        text-align: center
+    }
+
+    .timeline-steps .timeline-content .inner-circle {
+        border-radius: 1.5rem;
+        height: 0.5rem;
+        width: 0.5rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #d1d6d6
+    }
+
+    .timeline-steps .timeline-content .inner-circle:before {
+        content: "";
+        background-color: #d1d6d6;
+        display: inline-block;
+        height: 2rem;
+        width: 2rem;
+        min-width: 2rem;
+        border-radius: 6.25rem;
+        opacity: .5
+    }
+
+    .timeline-steps .timeline-content .inner-circle-completed {
+        border-radius: 1.5rem;
+        height: 0.5rem;
+        width: 0.5rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #158b89
+    }
+
+    .timeline-steps .timeline-content .inner-circle-completed:before {
+        content: "";
+        background-color: #158b89;
+        display: inline-block;
+        height: 2rem;
+        width: 2rem;
+        min-width: 2rem;
+        border-radius: 6.25rem;
+        opacity: .5
+    }
+
+</style>
+
+<script>
+    var url = '../../students/transaction/studentHostelBookingInner.jsp';
+    $(document).ready(function () {
+
+        $(document).on("keydown", disableF5);
+        $(document).bind("contextmenu", function (event) {
+            event.preventDefault();
+            alert('Right click disable');
+        });
+    });
+    function funLoadRoomType() {
+        $("#btnSave").attr("disabled", false);
+        if (eval($("#txtHostelNames").val()) == 0) {
+            $("#divModelBody").html("Select hostel name");
+            $('#hostelbookingModal').modal('show');
+            $("#divLoadRooms").html("");
+            $("#divRoomtype").html("");
+            return false;
+        }
+
+        if (eval($("#txtHostelNames").val()) != 0) {
+            var AJAXparameter = [];
+            AJAXparameter.push({name: "iden", value: "1"});
+            AJAXparameter.push({name: "cmbHostelid", value: $("#txtHostelNames").val()});
+            $("#divRoomtype").html("<img src='../../resources/Image/wait.gif' alt='Loading... Please wait..'>");
+            $.post(url, AJAXparameter, function (data) {
+                $("#divRoomtype").html(data);
+                $("#divLoadRooms").html("");
+            }, "html").fail(function (jqXHR, textStatus, errorThrown) {
+                alert("errpr" + textStatus + "--" + jqXHR.responseText + " " + errorThrown);
+            });
+        }
+    }
+
+    function funClearRooms() {
+        $("#btnSave").attr("disabled", false);
+        $("#divLoadRooms").html("");
+    }
+
+    function funViewRooms() {
+        var forms = document.getElementsByClassName('needs-validation');
+        var validation = Array.prototype.filter.call
+                (forms, function (form)
+                {
+                    if (form.checkValidity() === false) {
+
+                        event.preventDefault();
+                        event.stopPropagation();
+                    } else {
+
+                        if (eval($("#txtHostelNames").val()) == 0) {
+                            $("#divModelBody").html("Select hostel name");
+                            $('#hostelbookingModal').modal('show');
+                            return false;
+                        }
+
+                        if (eval($("#roomtype").val()) == 0) {
+                            $("#divModelBody").html("Select room type");
+                            $('#hostelbookingModal').modal('show');
+                            return false;
+                        }
+
+                        var AJAXparameter = [];//$("#frmRoomSelection").serializeArray();
+                        AJAXparameter.push({name: "iden", value: "2"});
+                        AJAXparameter.push({name: "cmbHostelid", value: $("#txtHostelNames").val()});
+                        AJAXparameter.push({name: "cmbRoomtypeid", value: $("#roomtype").val()});
+    
+                        $("#divLoadRooms").html("<img src='../../resources/Image/wait.gif' alt='Loading... Please Wait!'>");
+                        $.post(url, AJAXparameter, function (data, status) {
+                            $("#divLoadRooms").html(data);
+                        }, "html");
+                    }
+                    form.classList.add('was-validated');
+                });
+        $("#btnSave").attr("disabled", true);
+
+    }
+
+    function funSelectedrooms(arg, arg1, arg2, refid) {
+        var ele = arg2;
+        $("#hdnRoomid").val(arg);
+        $("#hdnReferenceid").val(refid);
+        if (arg2.checked == true) {
+            ele.checked = false;
+            $("#hdnIsChecked").val(0);
+        } else {
+            ele.checked = true;
+            $("#hdnIsChecked").val(1);
+        }
+    }
+
+    function funBlockedRooms() {
+        var checkboxes = 0;
+        try {
+            checkboxes = document.getElementsByName('roomid');
+        } catch (e) {
+        }
+
+        var count = 0;
+        for (var i = 0, n = checkboxes.length; i < n; i++) {
+            if (checkboxes[i].checked)
+            {
+                count++;
+            }
+        }
+        if (count > 1) {
+            alert("You cannot Select more than one Room");
+            return false;
+        } else if (count == 0) {
+            alert("Please select the room or Try with different option");
+            return false;
+        }
+        var AJAXparameter = [];//$("#frmRoomSelection").serializeArray();
+        AJAXparameter.push({name: "iden", value: "3"});
+        AJAXparameter.push({name: "roomid", value: $("#hdnRoomid").val()});
+        //AJAXparameter.push({name: "Studentid", value: $("#hdnStudentid").val()});
+        AJAXparameter.push({name: "isChecked", value: $("#hdnIsChecked").val()});
+        AJAXparameter.push({name: "processstatus", value: 1});
+        AJAXparameter.push({name: "referenceid", value: $("#hdnReferenceid").val()});
+        $.post(url, AJAXparameter, function (data, status) {
+            var msg = data.toString();
+            if (msg == "false") {
+                alert("Selected rooms already processing by other student.");
+                funViewRooms();
+            } else {
+                $('#hdnFormId').val(15);
+                $("#userHomePage").attr("action", "../../students/template/HRDSystem.jsp");
+                $("#userHomePage").submit();
+            }
+        }, "html");
+    }
+    function funNext() {
+        funBlockedRooms();
+    }
+
+    function disableF5(e) {
+        if ((e.which || e.keyCode) == 116) {
+            e.preventDefault();
+            alert("F5 Key Disable");
+        }
+        ;
+        if ((e.which || e.keyCode) == 82) {
+            e.preventDefault();
+            alert("Ctrl+R Key Disable");
+        }
+        ;
+        if ((e.which || e.keyCode) == 123) {
+            e.preventDefault();
+            alert("F12 Key Disable");
+        }
+        ;
+    }
+    ;
+
+    function fndirectconfirmationpage() {
+        $('#hdnFormId').val(15);
+        $("#userHomePage").attr("action", "../../students/template/HRDSystem.jsp");
+        $("#userHomePage").submit();
+    }
+
+</script>
+
+<div class="container mt-4">
+    <div class="card mb-4">
+        <div class="card-header bg-custom text-white">Hostel Booking</div>
+        <!--</div>-->
+        <div class="card-body">
+                 
+
+            
+
+
+            <form name="frmRoomSelection" id="frmRoomSelection" method="POST" autocomplete="off" class="needs-validation" novalidate="">     
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="timeline-steps aos-init aos-animate" data-aos="fade-up">
+                                        <div class="timeline-step">
+                                            <div class="timeline-content" data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-content="" data-original-title="">
+                                                <div class="inner-circle-completed"></div>
+                                                <p class="h7 text-muted mt-3 mb-1">Select Room &amp; Pay</p>
+                                            </div>
+                                        </div>
+                                        <div class="timeline-step">
+                                            <div class="timeline-content" data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-content="" data-original-title="">
+                                                <div class="inner-circle"></div>
+                                                <p class="h7 text-muted mt-3 mb-1">Payment Confirmation</p>
+                                            </div>
+                                        </div>
+                                        <div class="timeline-step">
+                                            <div class="timeline-content" data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-content="" data-original-title="">
+                                                <div class="inner-circle"></div>
+                                                <p class="h7 text-muted mt-3 mb-1">Allotment Order</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="col-form-label">Hostel Name<p class="requiredfield">*</p></label>
+                            
+                            <select name="txtHostelNames" id="txtHostelNames" class="form-control" required="" onchange="funLoadRoomType()">                         
+                                <option value="0">Select Hostel Name</option>                     
+                                
+                            </select>
+                            <div class="invalid-feedback">
+                                Select Hostel Name
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group" id="divRoomtype">
+                            <label class="col-form-label">Room Type<p class="requiredfield">*</p></label>                     
+                            <select name="roomtype" id="roomtype" class="form-control" required="">                         
+                                <option value="0">Select Room Type</option> 
+                            </select>
+                            <div class="invalid-feedback">
+                                Select Room Type
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="col-md-12 text-left">
+                            <br><br>
+                            <button type="button" id="btnSave" class="btn btn-custom rounded-pill lift" onclick="funViewRooms()">
+                                Go
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12" id="divLoadRooms"></div>
+                </div>
+                 
+                <input type="hidden" id="hdnRoomid" name="hdnRoomid" class="clsajaxcall"> 
+                <input type="hidden" id="hdnReferenceid" name="hdnReferenceid" class="clsajaxcall"> 
+                <input type="hidden" id="hdnIsChecked" name="hdnIsChecked" class="clsajaxcall"> 
+            </form>
+            
+        </div>
+        <div class="modal fade" id="hostelbookingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Hostel Booking</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span class="text-white" aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="divModelBody">
+                        Select hostel
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-dark lift" type="button" data-dismiss="modal">Ok</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  
+</div>  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+                    </main>
+                    <footer class="footer mt-auto footer-light">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-6 small"></div>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+            <input type="hidden" id="hdnFormStatus" name="hdnFormStatus" value="0">
+            <input type="hidden" id="hdnFormId" name="hdnFormId" value="1">
+            <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Logout</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span class="text-white" aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Are you sure to logout?
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-dark lift" type="button" data-dismiss="modal">Cancel</button>
+                            <a class="btn btn-custom lift" href="index.html">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <input type="hidden" id="hdnFilename" name="hdnFilename" value="">
+        </form>
+        <script src="./booking_files/bootstrap.bundle.min.js.download"></script>
+        <script src="./booking_files/jquery.easing.min.js.download"></script>
+        <script src="./booking_files/main.js.download"></script>                   
+    
+
+
+
+ </body></html>

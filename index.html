@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>dashboard</title>
+    <!-- Include CSS files -->
+    <link href="./index_files/all.css" rel="stylesheet" type="text/css">
+    <link href="./index_files/mainstyle.css" rel="stylesheet">
+    <!-- Include jQuery library -->
+    <script src="./index_files/jquery-3.2.1.min.js.download"></script>
+    <!-- Favicon -->
+    <link href="https://sp.srmist.edu.in/srmiststudentportal/resources/Image/college_icon.png" type="Image/x-icon" rel="icon">
+    <script>
+        // JavaScript code
+        $(document).ready(function () {
+            // Disable form submission on Enter key press
+            $(window).keydown(function (event) {
+                if (event.keyCode == 13) {
+                    event.preventDefault();
+                    return false;
+                }
+            });
+
+            // Dynamically set form action based on current directory
+            var currentURL = window.location.href;
+            var directoryPath = currentURL.substring(0, currentURL.lastIndexOf('/'));
+            var pageName = "dashboard.html"; // Replace "your_page.html" with the name of your HTML page
+            var pagePath = directoryPath + "/" + pageName;
+
+            document.getElementById("login_form").action = pagePath;
+        });
+
+        function funLogin() {
+            // Get login, password, and captcha values
+            var login = $('#login').val();
+            var password = $('#passwd').val();
+            var cap = $('#ccode').val(); // Added to retrieve captcha value
+
+            // Check if login, password, and captcha match the predefined values
+            if (login !== 'ss1025' || password !== 'Musu1234' || cap !== 'NninAs') {
+                // If not matched, show error message
+                alert('Please enter valid credentials.');
+            } else {
+                // If matched, proceed with form submission
+                document.getElementById('login').value = 'ss1025';
+                document.getElementById('passwd').value = 'Musu1234';
+                $('#login_form')[0].reset();
+                $("#login").removeAttr("required");
+                $("#ccode").removeAttr("required");
+                $("#passwd").removeAttr("required");
+                $("#login_form").submit();
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="container">
+    <!-- Outer Row -->
+    <div class="row justify-content-center">
+        <div class="col-xl-12 col-lg-12 col-md-12">
+            <div class="card o-hidden shadow-lg my-1 border-0 ">
+                <!-- Card Header -->
+                <div class="row mb-1">
+                    <!-- Columns -->
+                    <div class="col-md-3">
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <img class="mt-1" src="./index_files/srmist.jpg" width="275px;" height="90px;" alt="SRM IST">
+                    </div>
+                    <div class="col-md-3">
+                    </div>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body p-0">
+                    <!-- Nested Row within Card Body -->
+                    <div class="row mt-3 ml-1 mr-1">
+                        <!-- Columns -->
+                        <div class="col-md-7">
+                            <!-- Text Content -->
+                            <p style="font-weight: bold;font-size: 13pt;">Dear Student,</p>
+                            <p>Welcome to SRMIST STUDENT PORTAL.</p>
+                            <p>You can access the student portal to view your academic and financial details, etc.</p>
+                            <p>SRMIST students can log in with NetID credentials. (i.e., If your mail id is abcd@srmist.edu.in, your netid is abcd &amp; the password will be your email password) </p>
+                        </div>
+                        <div class="col-lg-5">
+                            <!-- Card Progress -->
+                            <div class="card card-progress" id="divLogin">
+                                <div class="card-header badge-custom text-center text-white">Student Portal</div>
+                                <div class="card-body">
+                                    <div class="p-2">
+                                        <!-- Login Form -->
+                                        <form method="post" autocomplete="off" id="login_form" class="needs-validation" novalidate="">
+                                            <!-- NetID Input -->
+                                            <div class="form-group mb-4">
+                                                <label>NetID (without '@srmist.edu.in')</label>
+                                                <div class="input-group has-validation">
+                                                    <span class="input-group-text text-custom" id="inputGroupPrepend"><i class="fa fa-user" aria-hidden="true"></i></span>
+                                                    <input type="text" class="form-control clsalphanumeric" name="login" id="login" placeholder="NetID" required="" maxlength="6">
+                                                    <div class="invalid-feedback" id="divUserId">
+                                                        Enter a User Id
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Password Input -->
+                                            <div class="form-group mb-4">
+                                                <label>Password</label>
+                                                <div class="input-group has-validation">
+                                                    <span class="input-group-text text-custom" id="inputGroupPrepend"><i class="fa fa-key "></i></span>
+                                                    <input type="password" class="form-control" name="passwd" id="passwd" placeholder="Password" required="">
+                                                    <div class="invalid-feedback">
+                                                        Enter a valid password
+                                                    </div>
+                                                </div>
+                                                <div style="text-align: right;">
+                                                    <!-- Forgot Password Link -->
+                                                    <a href="" title="Click to Reset Password" target="_blank">Forgot Password?</a>
+                                                </div>
+                                            </div>
+                                            <!-- Captcha Input -->
+                                            <div>
+                                                <label>Captcha</label>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-6 input-group has-validation">
+                                                    <span class="input-group-text text-custom" id="inputGroupPrepend"><i class="fa fa-recycle"></i></span>
+                                                    <input type="text" class="form-control" name="ccode" id="ccode" placeholder="Captcha" required="">
+                                                    <div class="invalid-feedback">
+                                                        Enter a valid Captcha
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <img src="./index_files/captchas">
+                                                </div>
+                                            </div>
+                                            <!-- Login Button -->
+                                            <button type="button" class="btn btn-custom btn-user btn-block lift" onclick="funLogin()">
+                                                <i class="fa fa-lock fa-fw mr-1"></i> Login
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

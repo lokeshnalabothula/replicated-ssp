@@ -1,0 +1,575 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<!-- saved from url=(0076)https://sp.srmist.edu.in/srmiststudentportal/students/template/HRDSystem.jsp -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+         
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>dashboard</title>
+        <link href="./summerterm_files/mainstyle.css" rel="stylesheet">
+        <link href="./summerterm_files/all.css" rel="stylesheet" type="text/css">
+        <link href="./summerterm_files/customstyle.css" rel="stylesheet">
+        <link href="https://sp.srmist.edu.in/srmiststudentportal/resources/Image/college_icon.jpeg" type="Image/x-icon" rel="icon">
+        <script src="./summerterm_files/jquery.min.js.download"></script>
+        <script>
+            var appURL = "";
+            var imageName;
+            var d;
+            $(function () {
+                (function (global) {
+
+                    if (typeof (global) === "undefined")
+                    {
+                        throw new Error("window is undefined");
+                    }
+
+                    var _hash = "!";
+                    var noBackPlease = function () {
+                        global.location.href += "#";
+                        // making sure we have the fruit available for juice....
+                        // 50 milliseconds for just once do not cost much (^__^)
+                        global.setTimeout(function () {
+                            global.location.href += "!";
+                        }, 50);
+                    };
+                    // Earlier we had setInerval here....
+                    global.onhashchange = function () {
+                        if (global.location.hash !== _hash) {
+                            global.location.hash = _hash;
+                        }
+                    };
+                    global.onload = function () {
+
+                        noBackPlease();
+                        // disables backspace on page except on input fields and textarea..
+                        document.body.onkeydown = function (e) {
+                            var elm = e.target.nodeName.toLowerCase();
+                            if (e.which === 8 && (elm !== 'input' && elm !== 'textarea')) {
+                                e.preventDefault();
+                            }
+                            // stopping event bubbling up the DOM tree..
+                            e.stopPropagation();
+                        };
+                    };
+                })(window);
+                $("#hidchkHostelOpen").val('2024-02-24 11:00:00');
+                funShow(44, '../../students/transaction/summerTermRegistrationController.jsp');
+            });
+
+            function funSetFormId(arg) {
+                if (arg > 100) {
+                    $('#logoutModal').modal('show');
+                } else {
+                    $("#hdnFormId").val(arg);
+                    $('#userHomePage').attr("action", "../../students/template/HRDSystem.jsp");
+                    $('#userHomePage').submit();
+                }
+            }
+
+            function funShow(arg, argURL) {
+                appParameter = [];
+                appParameter.push({name: "iden", value: arg});
+                appParameter.push({name: "filter", value: ""});
+                $(".navmenu").removeClass("active");
+                $("#listId" + arg).addClass("active");
+                if (arg < 100) {
+                //     $("#divMainDetails").html("<img src='../../resources/Image/wait.gif' alt='Loading... Please Wait!'>");
+                //     $("#divMainDetails").show();
+                //     $.post(argURL, appParameter, function (data) {
+                //         $("#divMainDetails").html(data);
+                //         $("#divMainDetails").show();
+                //     }, "html").fail(function (jqXHR, textStatus, errorThrown) {
+                //         alert(jqXHR.responseText);
+                //     })
+                } else {
+                    $('#logoutModal').modal('show');
+                }
+            }
+        </script>
+    </head>
+    <body class="nav-fixed">
+        <form id="userHomePage" name="userHomePage" method="post">
+            <nav class="topnav navbar navbar-expand shadow justify-content-between justify-content-sm-start navbar-light bg-white" id="sidenavAccordion">
+                <button class="btn btn-icon btn-transparent-dark order-1 order-lg-0 mr-lg-2" id="sidebarToggle"><i class="fa fa-bars"></i></button>
+                <a class="navbar-brand" href="dashboard.html">
+                    <img src="./summerterm_files/srmist.png" alt="SRM Logo"> 
+                    <br><font style="font-size: 9pt;">Student Portal</font>
+                </a>
+                <span class="text-custom d-none d-sm-block"><b>Faculty of Engineering and Technology, Kattankulathur</b></span>
+
+                <ul class="navbar-nav align-items-center ml-auto text-center">
+
+                    <a style="cursor:pointer;">
+                        <span class="dropdown-item" data-toggle="modal" data-target="#logoutModal">
+                            <div class="dropdown-item-icon"><i class="fas fa-sign-out-alt"></i></div>
+                            Logout
+                        </span>
+                    </a>
+                </ul>
+            </nav>
+
+            <div id="layoutSidenav">
+                <div id="layoutSidenav_nav">
+                    <nav class="sidenav shadow-right sidenav-light">
+                        <div class="sidenav-menu">
+                            <div class="nav accordion" id="accordionSidenav">
+
+                                <!-- Sidenav Heading -->
+                                <!--                                <div class="sidenav-menu-heading">Menus</div>-->
+
+                                
+                                <a id="listId1" class="nav-link navmenu" style="cursor:pointer;" href="dashboard.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-tachometer-alt"></i></div>
+                                        Dashboard 
+                                </a>
+                                
+                                <a id="listId69" class="nav-link navmenu" style="cursor:pointer;" href="feesdetails.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Fee Payment 
+                                </a>
+                                
+                                <a id="listId17" class="nav-link navmenu" style="cursor:pointer;" href="personaldetails.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-user"></i></div>
+                                        Personal Details 
+                                </a>
+                                
+                                <a id="listId29" class="nav-link navmenu" style="cursor:pointer;" href="scholarship.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Scholarship Renewal Process 
+                                </a>
+                                
+                                <a id="listId7" class="nav-link navmenu" style="cursor:pointer;" href="courselist.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-book"></i></div>
+                                        Course List 
+                                </a>
+                                
+                                <a id="listId8" class="nav-link navmenu" style="cursor:pointer;" href="grade.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Grade / Mark &amp; Credit 
+                                </a>
+                                
+                                <a id="listId24" class="nav-link navmenu" style="cursor:pointer;" href="provisional.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Exam Provisional Results 
+                                </a>
+                                
+                                <a id="listId27" class="nav-link navmenu" style="cursor:pointer;" href="revaluation.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Exam Revaluation Results 
+                                </a>
+                                
+                                <a id="listId9" class="nav-link navmenu" style="cursor:pointer;" href="attendance.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-calculator"></i></div>
+                                        Attendance Details 
+                                </a>
+                                
+                                <a id="listId10" class="nav-link navmenu" style="cursor:pointer;" href="timetable.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-clock"></i></div>
+                                        Timetable 
+                                </a>
+                                
+                                <a id="listId13" class="nav-link navmenu" style="cursor:pointer;" href="internals.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-server"></i></div>
+                                        Internal Mark Details 
+                                </a>
+                                
+                                <a id="listId14" class="nav-link navmenu" style="cursor:pointer;" href="booking.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-bed"></i></div>
+                                        Hostel Booking 
+                                </a>
+                                
+                                <a id="listId11" class="nav-link navmenu" style="cursor:pointer;" href="details.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-bed"></i></div>
+                                        Hostel Details 
+                                </a>
+                                
+                                <a id="listId12" class="nav-link navmenu" style="cursor:pointer;" href="tdetails.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-bus"></i></div>
+                                        Transport Details 
+                                </a>
+                                
+                                <a id="listId3" class="nav-link navmenu" style="cursor:pointer;" href="fdetails.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-receipt"></i></div>
+                                        Finance Details 
+                                </a>
+                                
+                                <a id="listId5" class="nav-link navmenu" style="cursor:pointer;" href="noticeboard.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-server"></i></div>
+                                        Notice Board 
+                                </a>
+                                
+                                <a id="listId21" class="nav-link navmenu" style="cursor:pointer;" href="ABC.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-book"></i></div>
+                                        ABC Entry Request 
+                                </a>
+                                
+                                <a id="listId22" class="nav-link navmenu" style="cursor:pointer;" href="tbooking.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-solid fa-bus"></i></div>
+                                        Transport Booking 
+                                </a>
+                                
+                                <a id="listId42" class="nav-link navmenu" style="cursor:pointer;" href="hallticket.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Exam HallTicket 
+                                </a>
+                                
+                                <a id="listId46" class="nav-link navmenu" style="cursor:pointer;" href="photofordegree.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Photo for Degree certificate 
+                                </a>
+                                
+                                <a id="listId44" class="nav-link navmenu active" style="cursor:pointer;" href="summerterm.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-envelope"></i></div>
+                                        Summer Term / Compensatory Registration  
+                                </a>
+                                
+                                <a id="listId49" class="nav-link navmenu" style="cursor:pointer;" href="scribe.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Scribe Request 
+                                </a>
+                                
+                                <a id="listId54" class="nav-link navmenu" style="cursor:pointer;" href="review.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Review/Revaluation/Retotaling Registration 
+                                </a>
+                                
+                                <a id="listId57" class="nav-link navmenu" style="cursor:pointer;" href="namechange.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Name Change - Gazette 
+                                </a>
+                                
+                                <a id="listId74" class="nav-link navmenu" style="cursor:pointer;" href="community.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-file"></i></div>
+                                        Community Certificate 
+                                </a>
+                                
+                                <a id="listId83" class="nav-link navmenu" style="cursor:pointer;" href="placement.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Placement Insight Dashboard 
+                                </a>
+                                
+                                <a class="nav-link" data-toggle="modal" data-target="#logoutModal">
+                                    <div class="nav-link-icon"><i class="fas fa-sign-out-alt"></i></div>
+                                    Logout
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Sidenav Footer-->
+                        <div class="sidenav-footer">
+                            <div class="sidenav-footer-content">
+                                <div class="sidenav-footer-subtitle">RA2312703010014</div>
+                                <div class="sidenav-footer-subtitle">SHAIK SHIZA</div>                            </div>
+                            <input type="hidden" style="color:white;" id="hidchkHostelOpen" name="hidchkHostelOpen" size="10" value="2024-02-24 11:00:00">
+                        </div>
+                    </nav>
+                </div>
+                <div id="layoutSidenav_content">
+                    <main>
+                        <div id="divMainDetails" style="">
+
+
+
+
+
+   
+
+
+
+
+
+
+<script>
+    function fndirectconfirmationpage() {
+        if ($("#exampleCheck1").prop('checked') == false) {
+            //do something
+            //divCheckAlert
+            $("#divCheckAlert").html("<div class='alert alert-danger alert-icon-content mt-2'" +
+                    "role='alert'><div class='alert-icon-content'>Kindly check the acceptance" +
+                    "</div></div>");
+        } else {
+            $('#hdnFormId').val(38);
+            $("#userHomePage").attr("action", "../../students/template/HRDSystem.jsp");
+            $("#userHomePage").submit();
+        }
+    }
+    function fnProceedtoPay() {
+        $('#hdnpayamount').val($("#hdnTotalAmount").val());
+        document.getElementById("frmSummerTermRegistration").submit();
+    }
+    function verification(transid, pgtype) {
+        // $("#historypgtype").val(pgtype);
+        // $("#historysrmtransid").val(transid);
+        // document.getElementById("summertermreconcile").submit();
+    }
+    function print1(studentid, srmtrans) {
+        myWindow = window.open("../../students/transaction/SummerTermPaymentReceipt.jsp?srmTransid=" + srmtrans, this.target);
+        myWindow.focus()
+    }
+</script>
+<div class="container mt-4">
+    <form id="frmSummerTermRegistration" name="frmSummerTermRegistration" action="https://sp.srmist.edu.in/srmiststudentportal/SummerTermPayment" method="post" autocomplete="off">
+        <div class="card mb-4"> 
+            <div class="card-header bg-custom text-white">Summer Term/Compensatory Registration</div>           
+            <div class="card-body">
+
+                
+                
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                        <div class="table-responsive mt-1 table-billing-history">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th colspan="4" class="bg-custom text-white">Registered Subjects</th>
+                                    </tr>        
+                                    <tr class="text-custom ">
+                                        <th>Subject Description</th>
+                                        <th>Slot</th>
+                                        <th>Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                    
+                                    
+                                        
+                                        
+                                        <tr>
+                                            <td>GERMAN</td>
+                                            <td>SSA</td>                                                             
+                                            <td colspan="2">15000.00</td>
+                                        </tr>
+
+                                    
+                                        
+                                        
+                                        <tr>
+                                            <td>PROGRAMMING FOR PROBLEM SOLVING</td>
+                                            <td>SSB</td>                                                             
+                                            <td colspan="2">15000.00</td>
+                                        </tr>
+
+                                    
+                                        
+                                        
+                                        <tr>
+                                            <td>INTRODUCTION TO COMPUTATIONAL BIOLOGY</td>
+                                            <td>SSC</td>                                                             
+                                            <td colspan="2">15000.00</td>
+                                        </tr>
+
+                                    
+                                    
+                                        
+                                        <tr class="font-weight-700">
+                                            <td align="right" colspan="2">Total Amount</td>
+                                            <td id="divTotalAmount">45000.0</td>
+                                        </tr>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        
+                            <div class="row">
+                                <div class="col-md-12 text-left">
+                                    <div class="alert alert-success">
+                                        Thank you for the registration.
+                                    </div>
+                                </div>
+                            </div>
+                        
+                    
+                
+                
+
+            </div>
+
+        </div>
+    </form>
+    <div class="card mb-4"> 
+        <div class="card-body"> 
+            <div class="table-responsive mt-1 table-billing-history">
+                <form name="summertermreconcile" id="summertermreconcile" action="https://sp.srmist.edu.in/srmiststudentportal/SummerTermReconcile" method="POST" autocomplete="off">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th colspan="9" class="bg-custom text-white">Transaction Details</th>
+                            </tr>        
+                            <tr class="text-custom ">
+                                <th>Verify</th>
+                                <th>Student Id</th>
+                                <th>Summer/Compensatory</th>
+                                <th>SRM Transaction Id</th>
+                                <th>Bank Transaction Id</th>
+                                <th>Total Amount</th>
+                                <th>Payment Status</th>
+                                <th>Transaction Date</th>
+                                <th>Payment Gateway</th>  
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            
+                                
+                                
+                                
+                                <tr valign="top">
+                                    
+                                        
+                                        
+                                            <td> - </td>
+                                        
+                                        
+                                    
+                                           
+                                         
+                                        
+                                        
+                                       
+                                    <td>Summer Semester 2024</td>        
+                                    <td>615808S16052024093720445R442</td>
+                                    <td>0209737158</td>
+                                    <td>45000</td>
+                                                                            
+                                        
+                                        
+                                            <td>Success - No Error</td>
+                                        
+                                             
+
+                                    <td>16-05-2024 21:37:20</td>
+                                    <td>Pay U</td>                              
+                                </tr> 
+                            
+                                
+                                
+                                
+                                <tr valign="top">
+                                    
+                                           
+                                            <td>
+                                                <div class="row mt-2">
+                                                    <div class="col-md-12 text-center">
+                                                        <button type="button" id="paybutton" class="btn btn-sm btn-custom rounded-pill lift" >
+                                                            Verify
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        
+                                        
+                                        
+                                    
+                                        
+                                        
+                                            <td>615808 </td>
+                                        
+                                       
+                                    <td>Summer Semester 2024</td>        
+                                    <td>615808S16052024093321175R165</td>
+                                    <td>-</td>
+                                    <td>45000</td>
+                                                                            
+                                        
+                                        
+                                            <td>Initialized and Not Done - -</td>
+                                        
+                                             
+
+                                    <td>16-05-2024 21:33:21</td>
+                                    <td>Pay U</td>                              
+                                </tr> 
+                            
+                                
+                                
+                                
+                                <tr valign="top">
+                                    
+                                        
+                                        
+                                            <td> - </td>
+                                        
+                                        
+                                    
+                                        
+                                        
+                                            <td>615808 </td>
+                                        
+                                       
+                                    <td>Summer Semester 2024</td>        
+                                    <td>615808S13052024061957112R496</td>
+                                    <td></td>
+                                    <td>45000</td>
+                                                                            
+                                        
+                                        
+                                            <td>Failed - Transaction failed due to customer pressing cancel button.</td>
+                                        
+                                             
+
+                                    <td>13-05-2024 18:19:57</td>
+                                    <td>Pay U</td>                              
+                                </tr> 
+                            
+                                                   
+                        </tbody>
+                    </table>
+                    <input type="hidden" value="0" id="historysrmtransid" name="historysrmtransid">
+                    <input type="hidden" value="0" id="historypgtype" name="historypgtype">                       
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+                    </main>
+                    <footer class="footer mt-auto footer-light">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-6 small"></div>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+            <input type="hidden" id="hdnFormStatus" name="hdnFormStatus" value="0">
+            <input type="hidden" id="hdnFormId" name="hdnFormId" value="1">
+            <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Logout</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span class="text-white" aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Are you sure to logout?
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-dark lift" type="button" data-dismiss="modal">Cancel</button>
+                            <a class="btn btn-custom lift" href="index.html">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <input type="hidden" id="hdnFilename" name="hdnFilename" value="">
+        </form>
+        <script src="./summerterm_files/bootstrap.bundle.min.js.download"></script>
+        <script src="./summerterm_files/jquery.easing.min.js.download"></script>
+        <script src="./summerterm_files/main.js.download"></script>                   
+    
+
+
+
+ </body></html>

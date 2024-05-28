@@ -1,0 +1,892 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<!-- saved from url=(0076)https://sp.srmist.edu.in/srmiststudentportal/students/template/HRDSystem.jsp -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+         
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>dashboard</title>
+        <link href="./scribe_files/mainstyle.css" rel="stylesheet">
+        <link href="./scribe_files/all.css" rel="stylesheet" type="text/css">
+        <link href="./scribe_files/customstyle.css" rel="stylesheet">
+        <link href="https://sp.srmist.edu.in/srmiststudentportal/resources/Image/college_icon.jpeg" type="Image/x-icon" rel="icon">
+        <script src="./scribe_files/jquery.min.js.download"></script>
+        <script>
+            var appURL = "";
+            var imageName;
+            var d;
+            $(function () {
+                (function (global) {
+
+                    if (typeof (global) === "undefined")
+                    {
+                        throw new Error("window is undefined");
+                    }
+
+                    var _hash = "!";
+                    var noBackPlease = function () {
+                        global.location.href += "#";
+                        // making sure we have the fruit available for juice....
+                        // 50 milliseconds for just once do not cost much (^__^)
+                        global.setTimeout(function () {
+                            global.location.href += "!";
+                        }, 50);
+                    };
+                    // Earlier we had setInerval here....
+                    global.onhashchange = function () {
+                        if (global.location.hash !== _hash) {
+                            global.location.hash = _hash;
+                        }
+                    };
+                    global.onload = function () {
+
+                        noBackPlease();
+                        // disables backspace on page except on input fields and textarea..
+                        document.body.onkeydown = function (e) {
+                            var elm = e.target.nodeName.toLowerCase();
+                            if (e.which === 8 && (elm !== 'input' && elm !== 'textarea')) {
+                                e.preventDefault();
+                            }
+                            // stopping event bubbling up the DOM tree..
+                            e.stopPropagation();
+                        };
+                    };
+                })(window);
+                $("#hidchkHostelOpen").val('2024-02-24 11:00:00');
+                funShow(49, '../../students/certificateRequest/Scribe.jsp');
+            });
+
+            function funSetFormId(arg) {
+                if (arg > 100) {
+                    $('#logoutModal').modal('show');
+                } else {
+                    $("#hdnFormId").val(arg);
+                    $('#userHomePage').attr("action", "../../students/template/HRDSystem.jsp");
+                    $('#userHomePage').submit();
+                }
+            }
+
+            function funShow(arg, argURL) {
+                appParameter = [];
+                appParameter.push({name: "iden", value: arg});
+                appParameter.push({name: "filter", value: ""});
+                $(".navmenu").removeClass("active");
+                $("#listId" + arg).addClass("active");
+                if (arg < 100) {
+                //     $("#divMainDetails").html("<img src='../../resources/Image/wait.gif' alt='Loading... Please Wait!'>");
+                //     $("#divMainDetails").show();
+                //     $.post(argURL, appParameter, function (data) {
+                //         $("#divMainDetails").html(data);
+                //         $("#divMainDetails").show();
+                //     }, "html").fail(function (jqXHR, textStatus, errorThrown) {
+                //         alert(jqXHR.responseText);
+                //     })
+                } else {
+                    $('#logoutModal').modal('show');
+                }
+            }
+        </script>
+    </head>
+    <body class="nav-fixed">
+        <form id="userHomePage" name="userHomePage" method="post">
+            <nav class="topnav navbar navbar-expand shadow justify-content-between justify-content-sm-start navbar-light bg-white" id="sidenavAccordion">
+                <button class="btn btn-icon btn-transparent-dark order-1 order-lg-0 mr-lg-2" id="sidebarToggle"><i class="fa fa-bars"></i></button>
+                <a class="navbar-brand" href="dashboard.html">
+                    <img src="./scribe_files/srmist.png" alt="SRM Logo"> 
+                    <br><font style="font-size: 9pt;">Student Portal</font>
+                </a>
+                <span class="text-custom d-none d-sm-block"><b>Faculty of Engineering and Technology, Kattankulathur</b></span>
+
+                <ul class="navbar-nav align-items-center ml-auto text-center">
+
+                    <a style="cursor:pointer;">
+                        <span class="dropdown-item" data-toggle="modal" data-target="#logoutModal">
+                            <div class="dropdown-item-icon"><i class="fas fa-sign-out-alt"></i></div>
+                            Logout
+                        </span>
+                    </a>
+                </ul>
+            </nav>
+
+            <div id="layoutSidenav">
+                <div id="layoutSidenav_nav">
+                    <nav class="sidenav shadow-right sidenav-light">
+                        <div class="sidenav-menu">
+                            <div class="nav accordion" id="accordionSidenav">
+
+                                <!-- Sidenav Heading -->
+                                <!--                                <div class="sidenav-menu-heading">Menus</div>-->
+
+                                
+                                <a id="listId1" class="nav-link navmenu" style="cursor:pointer;" href="dashboard.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-tachometer-alt"></i></div>
+                                        Dashboard 
+                                </a>
+                                
+                                <a id="listId69" class="nav-link navmenu" style="cursor:pointer;" href="feesdetails.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Fee Payment 
+                                </a>
+                                
+                                <a id="listId17" class="nav-link navmenu" style="cursor:pointer;" href="personaldetails.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-user"></i></div>
+                                        Personal Details 
+                                </a>
+                                
+                                <a id="listId29" class="nav-link navmenu" style="cursor:pointer;" href="scholarship.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Scholarship Renewal Process 
+                                </a>
+                                
+                                <a id="listId7" class="nav-link navmenu" style="cursor:pointer;" href="courselist.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-book"></i></div>
+                                        Course List 
+                                </a>
+                                
+                                <a id="listId8" class="nav-link navmenu" style="cursor:pointer;" href="grade.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Grade / Mark &amp; Credit 
+                                </a>
+                                
+                                <a id="listId24" class="nav-link navmenu" style="cursor:pointer;" href="provisional.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Exam Provisional Results 
+                                </a>
+                                
+                                <a id="listId27" class="nav-link navmenu" style="cursor:pointer;" href="revaluation.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Exam Revaluation Results 
+                                </a>
+                                
+                                <a id="listId9" class="nav-link navmenu" style="cursor:pointer;" href="attendance.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-calculator"></i></div>
+                                        Attendance Details 
+                                </a>
+                                
+                                <a id="listId10" class="nav-link navmenu" style="cursor:pointer;" href="timetable.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-clock"></i></div>
+                                        Timetable 
+                                </a>
+                                
+                                <a id="listId13" class="nav-link navmenu" style="cursor:pointer;" href="internals.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-server"></i></div>
+                                        Internal Mark Details 
+                                </a>
+                                
+                                <a id="listId14" class="nav-link navmenu" style="cursor:pointer;" href="booking.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-bed"></i></div>
+                                        Hostel Booking 
+                                </a>
+                                
+                                <a id="listId11" class="nav-link navmenu" style="cursor:pointer;" href="details.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-bed"></i></div>
+                                        Hostel Details 
+                                </a>
+                                
+                                <a id="listId12" class="nav-link navmenu" style="cursor:pointer;" href="tdetails.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-bus"></i></div>
+                                        Transport Details 
+                                </a>
+                                
+                                <a id="listId3" class="nav-link navmenu" style="cursor:pointer;" href="fdetails.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-receipt"></i></div>
+                                        Finance Details 
+                                </a>
+                                
+                                <a id="listId5" class="nav-link navmenu" style="cursor:pointer;" href="noticeboard.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-server"></i></div>
+                                        Notice Board 
+                                </a>
+                                
+                                <a id="listId21" class="nav-link navmenu" style="cursor:pointer;" href="ABC.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-book"></i></div>
+                                        ABC Entry Request 
+                                </a>
+                                
+                                <a id="listId22" class="nav-link navmenu" style="cursor:pointer;" href="tbooking.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-solid fa-bus"></i></div>
+                                        Transport Booking 
+                                </a>
+                                
+                                <a id="listId42" class="nav-link navmenu" style="cursor:pointer;" href="hallticket.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Exam HallTicket 
+                                </a>
+                                
+                                <a id="listId46" class="nav-link navmenu" style="cursor:pointer;" href="photofordegree.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Photo for Degree certificate 
+                                </a>
+                                
+                                <a id="listId44" class="nav-link navmenu" style="cursor:pointer;" href="summerterm.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-envelope"></i></div>
+                                        Summer Term / Compensatory Registration  
+                                </a>
+                                
+                                <a id="listId49" class="nav-link navmenu active" style="cursor:pointer;" href="scribe.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Scribe Request 
+                                </a>
+                                
+                                <a id="listId54" class="nav-link navmenu" style="cursor:pointer;" href="review.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Review/Revaluation/Retotaling Registration 
+                                </a>
+                                
+                                <a id="listId57" class="nav-link navmenu" style="cursor:pointer;" href="namechange.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Name Change - Gazette 
+                                </a>
+                                
+                                <a id="listId74" class="nav-link navmenu" style="cursor:pointer;" href="community.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-file"></i></div>
+                                        Community Certificate 
+                                </a>
+                                
+                                <a id="listId83" class="nav-link navmenu" style="cursor:pointer;" href="placement.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Placement Insight Dashboard 
+                                </a>
+                                
+                                <a class="nav-link" data-toggle="modal" data-target="#logoutModal">
+                                    <div class="nav-link-icon"><i class="fas fa-sign-out-alt"></i></div>
+                                    Logout
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Sidenav Footer-->
+                        <div class="sidenav-footer">
+                            <div class="sidenav-footer-content">
+                                <div class="sidenav-footer-subtitle">RA2312703010014</div>
+                                <div class="sidenav-footer-subtitle">SHAIK SHIZA</div>                            </div>
+                            <input type="hidden" style="color:white;" id="hidchkHostelOpen" name="hidchkHostelOpen" size="10" value="2024-02-24 11:00:00">
+                        </div>
+                    </nav>
+                </div>
+                <div id="layoutSidenav_content">
+                    <main>
+                        <div id="divMainDetails" style="">
+
+
+
+
+
+
+
+
+
+
+<script>
+    function funLoadSubject() {
+        var month = $("#txtExamMonthYear").val();
+        if (month != "0") {
+            const months = month.split("_");
+            $("#hdnExamMonth").val(months[0]);
+            $("#hdnExamYear").val(months[1]);
+            var url = '../../students/certificateRequest/ScribeInner.jsp';
+                            var AJAXparameter = [];
+                            AJAXparameter.push({name: "iden", value: "1"});
+                            AJAXparameter.push({name: "hdnExamMonth", value: $("#hdnExamMonth").val()});
+                            AJAXparameter.push({name: "hdnExamYear", value: $("#hdnExamYear").val()});
+                            $("#divLoad").html("<img src='../../resources/Image/wait.gif' alt='Loading... Please Wait!'>");
+                            $.post(url, AJAXparameter, function (data, status) {
+                                $("#divLoad").html(data);
+                            }, "html");
+        }else{
+            $("#divLoad").html("");
+        }
+    }
+
+
+    function funViewDetails(argScribeRequestid) {
+        $("#ViewSubjectModal").show();
+        var ajaxParameter = []
+        ajaxParameter.push({name: "iden", value: 3});
+        ajaxParameter.push({name: "ScribeRequestid", value: argScribeRequestid});
+        $("#scribeDetails").html("<img src='../../resources/Image/wait.gif' alt='Loading... Please wait..'>");
+        $.post("../../students/certificateRequest/ScribeInner.jsp", ajaxParameter, function (data, status) {
+            $("#scribeDetails").html(data);
+        }, "html");
+    }
+
+    function funOnclickSubjectListTr(argId) {
+        if ($("#rdnSubjectList" + argId).is(":checked", true)) {
+            $("#rdnSubjectList" + argId).prop("checked", false);
+        } else {
+            $("#rdnSubjectList" + argId).prop("checked", true);
+        }
+        funCalculateAmount();
+
+    }
+    function funCalculateAmount() {
+        var amount = 0;
+        var chkSubjects = $(':checkbox.clsScribeCheck:checked').map(function () {
+            $("#divResult").html("");
+            amount += parseFloat($(this).attr("data-amount"));
+            return this.value;
+        }).get();
+        $("#hdnTempScribeTotalAmount").val(parseFloat(amount).toFixed(2));
+        $("#divScribeTotalAmount").html($("#hdnTempScribeTotalAmount").val());
+        funCalculateFinalAmount();
+    }
+
+//    function funChecScribeChoice(arg, argAmount) {
+//        //var selectedScribeSubjectCnt = $('.clsScribeCheck:checkbox:checked').length;
+//        $("#hdnTempScribeTotalAmount").val($(arg).closest("tr").attr("data-amount"));
+//        if (arg.checked) {
+//            $("#divAlert").html("");
+//            $("#hdnTempScribeTotalAmount").val((parseFloat($("#hdnTempScribeTotalAmount").val()) + parseFloat(argAmount)).toFixed(2));
+//        } else {
+//            $("#hdnTempScribeTotalAmount").val((parseFloat($("#hdnTempScribeTotalAmount").val()) - parseFloat(argAmount)).toFixed(2));
+//        }
+//
+//        if (parseFloat($("#hdnTempScribeTotalAmount").val()) > 0) {
+//            $("#divScribeTotalAmount").html($("#hdnTempScribeTotalAmount").val());
+//        } else {
+//            $("#divScribeTotalAmount").html("0.00");
+//        }
+//        funCalculateFinalAmount();
+//    }
+
+    function funCalculateFinalAmount() {
+        var scribeamount = 0, concessionamount = 0, totalamount = 0;
+        try {
+            scribeamount = parseFloat($("#hdnTempScribeTotalAmount").val());
+        } catch (e) {
+
+        }
+        try {
+            concessionamount = parseFloat($("#hdnConcessionAmount").val());
+        } catch (e) {
+
+        }
+        totalamount = scribeamount + concessionamount;
+        $("#hdnGrantAmount").val(parseFloat(totalamount).toFixed(2));
+        $("#divGrandTotalAmount").html($("#hdnGrantAmount").val());
+    }
+
+    function funsubmitRegistration() {
+        var chkScribeSubjectIds = "";
+        //Attachment Data
+        $("#hdnDoctorCertificateIds").val("");
+        $("#hdnDoctorCertificateDetails").val("");
+        var DoctorCertificateAttachmentIds = $('.clsFileId154').map(function () {
+            return this.value;
+        }).get();
+        $("#hdnDoctorCertificateIds").val(DoctorCertificateAttachmentIds);
+
+        var DoctorCertificateAttachmentDetails = $('.clsAttachmentDetails154').map(function () {
+            return this.value;
+        }).get();
+        $("#hdnDoctorCertificateDetails").val(DoctorCertificateAttachmentDetails);
+
+        try {
+            chkScribeSubjectIds = $(':checkbox.clsScribeCheck:checked').map(function () {
+                return this.value;
+            }).get();
+        } catch (e) {
+
+        }
+        if (chkScribeSubjectIds == "")
+        {
+            $("#divResult").html("<div class='alert alert-danger alert-icon-content mt-2'" +
+                    "role='alert'><div class='alert-icon-content'>Select subject" +
+                    "</div></div>");
+            return false;
+        } else {
+            $("#divResult").html("");
+        }
+
+        if ($("#hdnDoctorCertificateIds").val() == "") {
+            $("#divResult").html("<div class='alert alert-danger alert-icon border-top-lg mb-2 mt-2' role='alert' id='errorAlert'><div class='alert-icon-content' id='errorAlertcontent'>Kindly attach the Medical Certificate</div></div>");
+            return false;
+        } else {
+            $("#divResult").html("");
+        }
+        var ajaxParameter = $('#frmScribeRequest').serializeArray();
+        ajaxParameter.push({name: "iden", value: 2});
+        ajaxParameter.push({name: "hdnScribeSubjectIds", value: chkScribeSubjectIds});
+        $("#btnProcess").hide();
+        $("#divResult").html("<img src='../../resources/Image/wait.gif' alt='Loading... Please wait..'>");
+        $.post("../../students/certificateRequest/ScribeInner.jsp", ajaxParameter, function (data, status) {
+            $("#divResult").html(data);
+            $("#divLoad").html("");
+        }, "html");
+
+    }
+
+    function funProceedtoPay(argTotalamt, argReqid, argExamMonth, argExamYear, argSubjectCount) {
+        $('#hdnPayamount').val(argTotalamt);
+        $('#ApplicationUniqueId').val(argReqid);
+        $('#hdnExamMonth').val(argExamMonth);
+        $('#hdnExamYear').val(argExamYear);
+        $('#hdnsubjectcount').val(argSubjectCount);
+        document.getElementById("frmScribeRequest").submit();
+    }
+
+    function verification(transid, pgtype, applicationtype) {
+        $("#hdnSrmtransid").val(transid);
+        $("#hdnBankType").val(pgtype);
+        $("#hdnApplicationType").val(applicationtype);
+        document.getElementById("scribereconcile").submit();
+    }
+
+    function print1(studentid, srmtrans) {
+        myWindow = window.open("../../students/certificateRequest/FeePaymentReceipt.jsp?srmTransid=" + srmtrans, this.target);
+        myWindow.focus()
+    }
+
+    // File Attachment Start
+    function funAttachFile(argTypeId) {
+        $("#divFileChooseError").html("");
+        $("#typeid").val(argTypeId);
+        $('#tfileUpload').val("");
+        $("#tfileUpload").focus();
+        $("#btnupload").show();
+        $(".custom-file-label").html("");
+        $('#chkConfirmImage1').prop('checked', false);
+        $('#documentUploadModal').modal('show');
+    }
+
+    function funuploadAttachment() {
+        if ($("#tfileUpload").val() == "") {
+            $("#divFileChooseError").html("<div class='alert  alertfileupload alert-danger alert-icon border-top-lg mb-1 mt-1' role='alert' id='errorAlert'><div class='alert-icon-content' id='errorAlertcontent'>Kindly choose the file</div></div>");
+            $(".alertfileupload").fadeTo(3000, 300).slideUp(200, function () {
+                $(".alertfileupload").slideUp(300);
+            });
+            return;
+        }
+        if ($("#chkConfirmImage1").is(":checked")) {
+            $("#divFileChooseError").html("<img src='../../resources/Image/wait.gif' alt='Loading... Please wait..'>");
+            funImageAttachment();
+        } else {
+            $("#divFileChooseError").html("<div class='alert  alertfileupload alert-danger alert-icon border-top-lg mb-1 mt-1' role='alert' id='errorAlert'><div class='alert-icon-content' id='errorAlertcontent'>Confirm the acceptance</div></div>");
+            $(".alertfileupload").fadeTo(3000, 300).slideUp(200, function () {
+                $(".alertfileupload").slideUp(300);
+            });
+        }
+    }
+
+    function funImageAttachment() {
+        var AjaxParameter = [];
+        AjaxParameter.push({name: "iden", value: "5"});
+        $.post("../../students/certificateRequest/ScribeInner.jsp", AjaxParameter, function (data) {
+            funuploadAtt($.trim(data));
+        }, "html").fail(function (jqXHR, textStatus, errorThrown) {
+            alert(jqXHR.responseText);
+        });
+        return true;
+    }
+
+    function funuploadAtt(argId) {
+        var currentTime = new Date();
+        var filetype = $('#tfileUpload').val().split(".");
+        var fileid = argId;
+        var str_currentdate = currentTime.getFullYear() + "_" + parseInt(currentTime.getMonth() + 1) + "_" + currentTime.getDate();
+        str_currentdate += "_" + currentTime.getHours() + "_" + currentTime.getMinutes() + "_" + currentTime.getMilliseconds();
+        var fileName = "Scribe" + fileid + "_" + str_currentdate;
+        $("#hdnAttachedFileNames").val(fileName);
+        $("#filename").val(fileName);
+        $("#fileid").val(fileid);
+        var appURL = "../../students/template/FileAttachmentWriteTempMultiple.jsp";
+        var form2 = $('#fileUploadAtt')[0];
+        var formData2 = new FormData(form2);
+        $("#btnupload").hide();
+        $.ajax({
+            url: appURL,
+            data: formData2,
+            type: 'POST',
+            processData: false,
+            contentType: false,
+            success: function (data2) {
+                $("#documentUploadModal").modal('hide');
+                $("#FileAttachmentTable" + $('#typeid').val()).append(data2);
+//                $('#divAttachFile').hide();
+            }
+        });
+    }
+
+    function load_image(id, ext, filesize)
+    {
+        filesize = Math.round(parseFloat(filesize) / 1024.0, 0);
+        if (parseFloat(filesize) > 200) {
+            $("#divFileChooseError").html("<div class='alert alertfileupload alert-danger alert-icon border-top-lg mb-1 mt-1' role='alert' id='errorAlert'><div class='alert-icon-content' id='errorAlertcontent'>Your file size is " + filesize + " KB. Kindly upload the file size below 200 KB</div></div>");
+            $('#tfileUpload').val("");
+            $("#tfileUpload").focus();
+            $(".custom-file-label").html("");
+            $(".alertfileupload").fadeTo(3000, 300).slideUp(200, function () {
+                $(".alertfileupload").slideUp(300);
+            });
+            return false;
+        } else if (validateExtension(ext) == false)
+        {
+            $("#divFileChooseError").html("<div class='alert  alertfileupload alert-danger alert-icon border-top-lg mb-1 mt-1' role='alert' id='errorAlert'><div class='alert-icon-content' id='errorAlertcontent'>Upload only JPEG or JPG or PDF format </div></div>");
+            $('#tfileUpload').val("");
+            $("#tfileUpload").focus();
+            $(".custom-file-label").html("");
+            $(".alertfileupload").fadeTo(3000, 300).slideUp(200, function () {
+                $(".alertfileupload").slideUp(300);
+            });
+            return false;
+        } else if (ext.indexOf("'") > 0) {
+            $('#divFileChooseError').html("<div class='alert  alertfileupload alert-danger alert-icon border-top-lg mb-1 mt-1' role='alert' id='errorAlert'><div class='alert-icon-content' id='errorAlertcontent'>Special characters not allowed in the file name</div></div>");
+            $('#tfileUpload').val("");
+            $("#tfileUpload").focus();
+            $(".custom-file-label").html("");
+            $(".alertfileupload").fadeTo(3000, 300).slideUp(200, function () {
+                $(".alertfileupload").slideUp(300);
+            });
+            return false;
+        } else {
+            $("#divFileChooseError").html("");
+            $(".custom-file-label").html($('#tfileUpload').val());
+        }
+    }
+
+
+    function validateExtension(v)
+    {
+        var allowedExtensions = new Array("jpg", "JPG","jpeg","JPEG", "png", "PNG", "pdf", "PDF");
+        for (var ct = 0; ct < allowedExtensions.length; ct++)
+        {
+            sample = v.lastIndexOf(allowedExtensions[ct]);
+            if (sample != -1) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    function funViewAttachmentFile(rowId, argExtension) {
+        var applnparameter = [];
+        applnparameter.push({name: "ids", value: "1"});
+        applnparameter.push({name: "filter", value: rowId});
+        applnparameter.push({name: "ActualName", value: rowId});
+        applnparameter.push({name: "fileextension", value: argExtension});
+        $.post("../../students/template/FileAttachmentView.jsp", applnparameter, function (data) {
+            var filename = $.trim(data).replace("%20", "");
+            var win2 = window.open('../../resources/temp/' + filename, "Attachments", "scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=yes,width=800,height=900,left=100,top=100");
+            win2.focus();
+        }, "html").fail(function (jqXHR, textStatus, errorThrown) {
+            alert("errpr" + textStatus + "--" + jqXHR.responseText + " " + errorThrown);
+        });
+    }
+
+    function funRemoveAttachment(rowId, imageId) {
+        $('#rowId').val(rowId);
+        $('#fileid').val(imageId);
+        $('#removedocumentUploadModal').modal('show');
+    }
+
+    function funConfirmRemoveAttach() {
+        $("#divremoveloading").html("<img src='../../resources/Image/wait.gif' alt='Loading... Please wait..'>");
+        var url = "../../students/template/FileAttachmentWriteTempMultiple.jsp?Filename=" + $('#rowId').val() + "&pageAction=51";
+        $.ajax({
+            url: url,
+            cache: false,
+            type: "post",
+            success: function (html) {
+                $("#divImageRow" + $("#fileid").val()).html("");
+                $("#divImageRow" + $("#fileid").val()).hide();
+                $("#divremoveloading").html("");
+                $("#removedocumentUploadModal").modal('hide');
+            }
+        });
+    }
+    // File Attachment End  
+</script>
+<div class="container mt-4">
+    <nav>
+        <div class="nav  nav-borders bg-white mb-2">
+            <a class="nav-link tabhead active" id="nav-newsubmission-tab" data-toggle="tab" data-target="#nav-newsubmission" type="button" role="tab" aria-controls="nav-newsubmission" aria-selected="true">New Request</a>
+            <a class="nav-link tabhead" id="nav-report-tab" data-toggle="tab" data-target="#nav-report" type="button" role="tab" aria-controls="nav-report" aria-selected="false">Requested History</a>
+            <a class="nav-link tabhead" id="nav-payment-tab" data-toggle="tab" data-target="#nav-payment" type="button" role="tab" aria-controls="nav-payment" aria-selected="false">Payment</a>
+            <a class="nav-link tabhead" id="nav-transaction-details-tab" data-toggle="tab" data-target="#nav-Transaction" type="button" role="tab" aria-controls="nav-Transaction" aria-selected="false">Transaction History</a>
+        </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-newsubmission" role="tabpanel" aria-labelledby="nav-home-tab">
+            <form id="frmScribeRequest" name="frmScribeRequest" action="https://sp.srmist.edu.in/srmiststudentportal/FeePayment" method="post" autocomplete="off" class="needs-validation" novalidate=""> 
+                <div class="card mb-4">
+                    <div class="card-header bg-custom text-white">Scribe Request</div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="alert alert-warning alert-icon">
+                                <div class="alert-icon-content text-justify">
+                                    <b>Instruction:- </b><br>
+                                    <p>1. Scribe requests once submitted cannot be withdrawn/edited at any cost.</p>
+                                    <p>2. The student is advised to make sure of the requirement of a scribe before submitting the online application form and provide all the necessary, valid documents &amp; information asked for smooth processing of the request.</p>
+                                </div>
+                            </div> 
+                        </div>
+                        <div class="col-md-12">                   
+                            <div class="form-group row">
+                                <label class="col-form-label col-sm-2"><b>Exam Month / Year</b> <p class="requiredfield">*</p></label>
+                                <select class="form-control col-sm-2" id="txtExamMonthYear" name="txtExamMonthYear" required="" onchange="funLoadSubject()">
+                                    <option selected="" value="0">Select</option>
+                                    
+                                    
+                                    
+                                        
+                                        
+                                        <option value="5_2024">May-2024</option>                                    
+                                    
+                                        
+                                        
+                                        <option value="12_2023">Dec-2023</option>                                    
+                                    
+                                </select>
+                                <div class="invalid-feedback">
+                                    Select Exam Month / Year
+                                </div>
+                            </div>                    
+                        </div> 
+                        <div class="col-md-12" id="divLoad"></div>
+                        <div class="col-md-12" id="divResult">
+                        </div>
+                    </div>
+                </div>
+                <input type="hidden" id="hdnExamMonth" name="hdnExamMonth" value="0">
+                <input type="hidden" id="hdnExamYear" name="hdnExamYear" value="0">
+                <input type="hidden" id="hdnsubjectcount" name="hdnsubjectcount" value="0">
+                <input type="hidden" id="hdnPayamount" name="hdnPayamount">
+                <input type="hidden" id="StudentId" name="StudentId" value="615808">
+                <input type="hidden" id="Studentname" name="Studentname" value="SHAIK SHIZA">
+                <input type="hidden" id="OfficeId" name="OfficeId" value="9">
+                <input type="hidden" id="Contactno" name="Contactno" value="9059777980">
+                <input type="hidden" id="ApplicationUniqueId" name="ApplicationUniqueId" value="0">
+                <input type="hidden" id="ApplicationTypeId" name="ApplicationTypeId" value="8">
+                <input type="hidden" id="hdnAttachedFileNames" name="hdnAttachedFileNames"> 
+                <input type="hidden" name="hdnDoctorCertificateIds" id="hdnDoctorCertificateIds" value="">
+                <input type="hidden" name="hdnDoctorCertificateDetails" id="hdnDoctorCertificateDetails" value="">
+            </form>
+        </div>
+        <div class="tab-pane fade" id="nav-report" role="tabpanel" aria-labelledby="nav-report-tab">
+            <div class="card mb-4"> 
+                <div class="card-body">
+                    <div class="table-responsive mt-1 table-billing-history">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th colspan="5" class="card-header bg-custom text-white">Scribe Requested History
+                                    </th>
+                                </tr>
+                                <tr class="alert-primary">
+                                    <th>Requested Date &amp; Time</th>                            
+                                    <th>Request Id</th>                            
+                                    <th>Exam Month / Year</th>    
+                                    <th>Status</th>  
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                
+                                
+                                
+                                    <tr><td colspan="5" align="center">No Record(s) found</td></tr>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="nav-payment" role="tabpanel" aria-labelledby="nav-payment-tab">
+            <div class="card mb-4"> 
+                <div class="card-body">
+                    <div class="table-responsive mt-1 table-billing-history">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th colspan="6" class="card-header bg-custom text-white">Payment - Scribe
+                                    </th>
+                                </tr>
+                                <tr class="alert-primary">
+                                    <th width="10%">Requested Date &amp; Time</th>                            
+                                    <th width="10%">Request Id</th>                            
+                                    <th>Exam Month / Year</th>    
+                                    <th width="10%">Subject Details</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                
+                                
+                                
+                                    <tr><td colspan="6" align="center">No Record(s) found</td></tr>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="nav-Transaction" role="tabpanel" aria-labelledby="nav-transaction-details-tab">
+            <div class="card mb-4"> 
+                <div class="card-body"> 
+                    <div class="table-responsive mt-1 table-billing-history">
+                        <form name="scribereconcile" id="scribereconcile" action="https://sp.srmist.edu.in/srmiststudentportal/FeePaymentReconcile" method="POST" autocomplete="off">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th colspan="8" class="bg-custom text-white">Transaction History - Scribe</th>
+                                    </tr>        
+                                    <tr class="alert-primary">
+                                        <th>Verify</th>
+                                        <th nowrap="">Student Id</th>
+                                        <th nowrap="">SRM Transaction Id</th>
+                                        <th nowrap="">Bank Transaction Id</th>
+                                        <th nowrap=""> Total Amount</th>
+                                        <th nowrap="">Payment Status</th>
+                                        <th nowrap="">Transaction Date</th>
+                                        <th nowrap="">Payment Gateway</th>  
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                    
+                                    
+                                        <tr> <td colspan="8" align="center">No Record found.</td></tr>
+                                                           
+                                </tbody>
+                            </table>
+                            <input type="hidden" value="0" id="hdnSrmtransid" name="hdnSrmtransid">
+                            <input type="hidden" value="0" id="hdnBankType" name="hdnBankType">
+                            <input type="hidden" value="0" id="hdnApplicationType" name="hdnApplicationType">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <form id="fileUploadAtt" name="fileUploadAtt" method="post" enctype="multipart/form-data">
+        <div class="modal fade" id="documentUploadModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Document Upload</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span class="text-white" aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="modalbodycontent">
+                        <div class="alert alert-info alert-icon mb-1 mt-1" role="alert">
+                            <div class="alert-icon-content">
+                                <h5 class="alert-heading">Note:</h5>
+                                <ul>
+                                    <li>The FILE SIZE should be less then 200KB. </li>
+                                    <li>You can upload (.jpg,.pdf and .png) files only. </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <input name="MAX_FILE_SIZE" value="100000" type="hidden">
+                        <input type="hidden" id="filename" name="filename">
+                        <input type="hidden" id="pageAction" name="pageAction" value="3">
+                        <input type="hidden" id="fileid" name="fileid">
+                        <input type="hidden" id="typeid" name="typeid">
+                        <input type="hidden" id="rowId" name="rowId">
+                        <div class="custom-file mt-5 mb-3">
+                            <input type="file" class="custom-file-input" id="tfileUpload" name="tfileUpload" accept=".jpg,.jpeg,.png,.pdf" onchange="load_image(this.id, this.value, this.files[0].size)">
+                            <label class="custom-file-label">Choose file</label>
+                        </div>
+                        <div class="text-danger mb-3">
+                            <input type="checkbox" id="chkConfirmImage1"> I confirm that the file selected by me is correct.
+                        </div>
+                        <div class="mt-1 text-center" id="divFileChooseError"></div>
+                        <div class="modal-footer">
+                            <button class="btn btn-dark lift" type="button" data-dismiss="modal">Cancel</button>
+                            <button class="btn btn-custom lift" type="button" id="btnupload" onclick="funuploadAttachment()">Upload</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="modal fade" id="removedocumentUploadModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Remove Document Upload</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span class="text-white" aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="modalbodycontent">
+                    Wish to remove attachment?
+                    <br>
+                    <div id="divremoveloading"></div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-dark lift" type="button" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-info lift" type="button" onclick="funConfirmRemoveAttach()">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="ViewSubjectModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-custom ">
+                    <h5 class="modal-title text-white" id="exampleModalLabel">Subject Details</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span class="text-white" aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="scribeDetails">
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-dark lift" type="button" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+                    </main>
+                    <footer class="footer mt-auto footer-light">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-6 small"></div>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+            <input type="hidden" id="hdnFormStatus" name="hdnFormStatus" value="0">
+            <input type="hidden" id="hdnFormId" name="hdnFormId" value="1">
+            <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Logout</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span class="text-white" aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Are you sure to logout?
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-dark lift" type="button" data-dismiss="modal">Cancel</button>
+                            <a class="btn btn-custom lift" href="index.html">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <input type="hidden" id="hdnFilename" name="hdnFilename" value="">
+        </form>
+        <script src="./scribe_files/bootstrap.bundle.min.js.download"></script>
+        <script src="./scribe_files/jquery.easing.min.js.download"></script>
+        <script src="./scribe_files/main.js.download"></script>                   
+    
+
+
+
+ </body></html>

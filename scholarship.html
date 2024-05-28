@@ -1,0 +1,1325 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<!-- saved from url=(0076)https://sp.srmist.edu.in/srmiststudentportal/students/template/HRDSystem.jsp -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+         
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>dashboard</title>
+        <link href="./scholarship_files/mainstyle.css" rel="stylesheet">
+        <link href="./scholarship_files/all.css" rel="stylesheet" type="text/css">
+        <link href="./scholarship_files/customstyle.css" rel="stylesheet">
+        <link href="https://sp.srmist.edu.in/srmiststudentportal/resources/Image/college_icon.jpeg" type="Image/x-icon" rel="icon">
+        <script src="./scholarship_files/jquery.min.js.download"></script>
+        <script>
+            var appURL = "";
+            var imageName;
+            var d;
+            $(function () {
+                (function (global) {
+
+                    if (typeof (global) === "undefined")
+                    {
+                        throw new Error("window is undefined");
+                    }
+
+                    var _hash = "!";
+                    var noBackPlease = function () {
+                        global.location.href += "#";
+                        // making sure we have the fruit available for juice....
+                        // 50 milliseconds for just once do not cost much (^__^)
+                        global.setTimeout(function () {
+                            global.location.href += "!";
+                        }, 50);
+                    };
+                    // Earlier we had setInerval here....
+                    global.onhashchange = function () {
+                        if (global.location.hash !== _hash) {
+                            global.location.hash = _hash;
+                        }
+                    };
+                    global.onload = function () {
+
+                        noBackPlease();
+                        // disables backspace on page except on input fields and textarea..
+                        document.body.onkeydown = function (e) {
+                            var elm = e.target.nodeName.toLowerCase();
+                            if (e.which === 8 && (elm !== 'input' && elm !== 'textarea')) {
+                                e.preventDefault();
+                            }
+                            // stopping event bubbling up the DOM tree..
+                            e.stopPropagation();
+                        };
+                    };
+                })(window);
+                $("#hidchkHostelOpen").val('');
+                funShow(29, '../../students/transaction/ApplyForScholarship.jsp');
+            });
+
+            function funSetFormId(arg) {
+                if (arg > 100) {
+                    $('#logoutModal').modal('show');
+                } else {
+                    $("#hdnFormId").val(arg);
+                    $('#userHomePage').attr("action", "../../students/template/HRDSystem.jsp");
+                    $('#userHomePage').submit();
+                }
+            }
+
+            function funShow(arg, argURL) {
+                appParameter = [];
+                appParameter.push({name: "iden", value: arg});
+                appParameter.push({name: "filter", value: ""});
+                $(".navmenu").removeClass("active");
+                $("#listId" + arg).addClass("active");
+                if (arg < 100) {
+                //     $("#divMainDetails").html("<img src='../../resources/Image/wait.gif' alt='Loading... Please Wait!'>");
+                //     $("#divMainDetails").show();
+                //     $.post(argURL, appParameter, function (data) {
+                //         $("#divMainDetails").html(data);
+                //         $("#divMainDetails").show();
+                //     }, "html").fail(function (jqXHR, textStatus, errorThrown) {
+                //         alert(jqXHR.responseText);
+                //     })
+                } else {
+                    $('#logoutModal').modal('show');
+                }
+            }
+        </script>
+    </head>
+    <body class="nav-fixed">
+        <form id="userHomePage" name="userHomePage" method="post">
+            <nav class="topnav navbar navbar-expand shadow justify-content-between justify-content-sm-start navbar-light bg-white" id="sidenavAccordion">
+                <button class="btn btn-icon btn-transparent-dark order-1 order-lg-0 mr-lg-2" id="sidebarToggle"><i class="fa fa-bars"></i></button>
+                <a class="navbar-brand" href="dashboard.html">
+                    <img src="./scholarship_files/srmist.png" alt="SRM Logo"> 
+                    <br><font style="font-size: 9pt;">Student Portal</font>
+                </a>
+                <span class="text-custom d-none d-sm-block"><b>Faculty of Engineering and Technology, Kattankulathur</b></span>
+
+                <ul class="navbar-nav align-items-center ml-auto text-center">
+
+                    <a style="cursor:pointer;">
+                        <span class="dropdown-item" data-toggle="modal" data-target="#logoutModal">
+                            <div class="dropdown-item-icon"><i class="fas fa-sign-out-alt"></i></div>
+                            Logout
+                        </span>
+                    </a>
+                </ul>
+            </nav>
+
+            <div id="layoutSidenav">
+                <div id="layoutSidenav_nav">
+                    <nav class="sidenav shadow-right sidenav-light">
+                        <div class="sidenav-menu">
+                            <div class="nav accordion" id="accordionSidenav">
+
+                                <!-- Sidenav Heading -->
+                                <!--                                <div class="sidenav-menu-heading">Menus</div>-->
+
+                                
+                                <a id="listId1" class="nav-link navmenu" style="cursor:pointer;" href="dashboard.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-tachometer-alt"></i></div>
+                                        Dashboard 
+                                </a>
+                                
+                                <a id="listId69" class="nav-link navmenu" style="cursor:pointer;" href="feesdetails.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Fee Payment 
+                                </a>
+                                
+                                <a id="listId17" class="nav-link navmenu" style="cursor:pointer;" href="personaldetails.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-user"></i></div>
+                                        Personal Details 
+                                </a>
+                                
+                                <a id="listId29" class="nav-link navmenu active" style="cursor:pointer;" href="scholarship.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Scholarship Renewal Process 
+                                </a>
+                                
+                                <a id="listId7" class="nav-link navmenu" style="cursor:pointer;" href="courselist.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-book"></i></div>
+                                        Course List 
+                                </a>
+                                
+                                <a id="listId8" class="nav-link navmenu" style="cursor:pointer;" href="grade.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Grade / Mark &amp; Credit 
+                                </a>
+                                
+                                <a id="listId24" class="nav-link navmenu" style="cursor:pointer;" href="provisional.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Exam Provisional Results 
+                                </a>
+                                
+                                <a id="listId27" class="nav-link navmenu" style="cursor:pointer;" href="revaluation.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Exam Revaluation Results 
+                                </a>
+                                
+                                <a id="listId9" class="nav-link navmenu" style="cursor:pointer;" href="attendance.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-calculator"></i></div>
+                                        Attendance Details 
+                                </a>
+                                
+                                <a id="listId10" class="nav-link navmenu" style="cursor:pointer;" href="timetable.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-clock"></i></div>
+                                        Timetable 
+                                </a>
+                                
+                                <a id="listId13" class="nav-link navmenu" style="cursor:pointer;" href="internals.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-server"></i></div>
+                                        Internal Mark Details 
+                                </a>
+                                
+                                <a id="listId14" class="nav-link navmenu" style="cursor:pointer;" href="booking.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-bed"></i></div>
+                                        Hostel Booking 
+                                </a>
+                                
+                                <a id="listId11" class="nav-link navmenu" style="cursor:pointer;" href="details.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-bed"></i></div>
+                                        Hostel Details 
+                                </a>
+                                
+                                <a id="listId12" class="nav-link navmenu" style="cursor:pointer;" href="tdetails.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-bus"></i></div>
+                                        Transport Details 
+                                </a>
+                                
+                                <a id="listId3" class="nav-link navmenu" style="cursor:pointer;" href="fdetails.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-receipt"></i></div>
+                                        Finance Details 
+                                </a>
+                                
+                                <a id="listId5" class="nav-link navmenu" style="cursor:pointer;" href="noticeboard.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-server"></i></div>
+                                        Notice Board 
+                                </a>
+                                
+                                <a id="listId21" class="nav-link navmenu" style="cursor:pointer;" href="ABC.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-book"></i></div>
+                                        ABC Entry Request 
+                                </a>
+                                
+                                <a id="listId22" class="nav-link navmenu" style="cursor:pointer;" href="tbooking.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-solid fa-bus"></i></div>
+                                        Transport Booking 
+                                </a>
+                                
+                                <a id="listId42" class="nav-link navmenu" style="cursor:pointer;" href="hallticket.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Exam HallTicket 
+                                </a>
+                                
+                                <a id="listId46" class="nav-link navmenu" style="cursor:pointer;" href="photofordegree.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Photo for Degree certificate 
+                                </a>
+                                
+                                <a id="listId44" class="nav-link navmenu" style="cursor:pointer;" href="summerterm.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-envelope"></i></div>
+                                        Summer Term / Compensatory Registration  
+                                </a>
+                                
+                                <a id="listId49" class="nav-link navmenu" style="cursor:pointer;" href="scribe.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Scribe Request 
+                                </a>
+                                
+                                <a id="listId54" class="nav-link navmenu" style="cursor:pointer;" href="review.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Review/Revaluation/Retotaling Registration 
+                                </a>
+                                
+                                <a id="listId57" class="nav-link navmenu" style="cursor:pointer;" href="namechange.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Name Change - Gazette 
+                                </a>
+                                
+                                <a id="listId74" class="nav-link navmenu" style="cursor:pointer;" href="community.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-file"></i></div>
+                                        Community Certificate 
+                                </a>
+                                
+                                <a id="listId83" class="nav-link navmenu" style="cursor:pointer;" href="placement.html">
+                                    <div class="nav-link-icon"><i class="fas fa-fw fa-newspaper"></i></div>
+                                        Placement Insight Dashboard 
+                                </a>
+                                
+                                <a class="nav-link" data-toggle="modal" data-target="#logoutModal">
+                                    <div class="nav-link-icon"><i class="fas fa-sign-out-alt"></i></div>
+                                    Logout
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Sidenav Footer-->
+                        <div class="sidenav-footer">
+                            <div class="sidenav-footer-content">
+                                <div class="sidenav-footer-subtitle">RA2312703010014</div>
+                                <div class="sidenav-footer-subtitle">SHAIK SHIZA</div>                            </div>
+                            <input type="hidden" style="color:white;" id="hidchkHostelOpen" name="hidchkHostelOpen" size="10" value="">
+                        </div>
+                    </nav>
+                </div>
+                <div id="layoutSidenav_content">
+                    <main>
+                        <div id="divMainDetails" style="">
+
+
+
+
+
+
+ 
+  
+
+
+<script>
+    $(function () {
+        //Disable cut copy paste
+        $('body').bind('cut copy paste', function (e) {
+            e.preventDefault();
+            alert("This function is not allowed here");
+            return true;
+        });
+        //Disable mouse right click
+        $("body").on("contextmenu", function (e) {
+            alert("This function is not allowed here");
+            return false;
+        });
+    });
+    function GetXmlHttpObject() {
+        if (window.XMLHttpRequest) {
+            xmlHttp = new XMLHttpRequest();
+        } else if (window.ActiveXObject) {
+            xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        return xmlHttp;
+    }
+    var x = 0;
+    var count = 5;
+    function funAdd() {
+        x++;
+        var BatContent = "<div id='divtable" + x + "'><table width='100%'><tr>"
+        BatContent += "<td align='left'><input type='text' class='form-control' name='activestatus" + x + "' id='activestatus" + x + "'  maxlength='10'/></td>"
+        BatContent += "</tr>"
+        BatContent += "</div>"
+        jQuery("#divtable").append(BatContent);
+        if (x >= 1) {
+
+            for (var i = 1; i <= count; i++) {
+            }
+        }
+
+        document.getElementById("hdncount").value = x;
+    }
+    function funDelete() {
+        if (x > 1) {
+            jQuery("#divtable" + x + "").remove();
+            x--;
+            document.getElementById("hdncount").value = x;
+        }
+    }
+    function funAdd1() {
+        x++;
+        var BatContent = "<div id='newdiv" + x + "'><table width='150px'><tr>"
+        BatContent += "<td align='left' ><input type=text class='form-control' name='activestatus" + x + "' id='activestatus" + x + "' onkeypress='return isNumberKey(event)' maxlength='1'/></td>"
+        BatContent += "</tr>"
+        BatContent += "</div>"
+        jQuery("#newdiv").append(BatContent);
+        if (x >= 1) {
+            for (var i = 1; i <= count; i++) {
+            }
+        }
+    }
+    function funDelete1() {
+        jQuery("#newdiv" + x + "").remove();
+        x--;
+    }
+    function displaycategory(categoryid) {
+        if (categoryid == 0) {
+            document.getElementById("carrear").value = '';
+            document.getElementById("coursecompletionyear").value = 0;
+            document.getElementById("alumnino").value = "";
+            document.getElementById("fatheroccupation").value = 0;
+            document.getElementById("fatherannualincome").value = 0;
+            document.getElementById("motherannualincome").value = 0;
+            document.getElementById("guardianannualincome").value = 0;
+            document.getElementById("fatheralive").value = "Alive";
+            document.getElementById("dateofyear").value = "";
+            document.getElementById("proficiency").value = "";
+            document.getElementById("artname").value = "";
+            document.getElementById("statedetails").value = "";
+            document.getElementById("differentlyabled").value = 0;
+            document.getElementById("typesdisability").value = 0;
+            document.getElementById("percentdeformity").value = 0;
+            document.getElementById("typesdisability").disabled = true;
+            document.getElementById("percentdeformity").disabled = true;
+
+            //document.getElementById("noofarrearsresult").style.display = 'none';
+            document.getElementById("yearofcoursecompletion").style.display = 'none';
+            document.getElementById("aluminimembershipnumber").style.display = 'none';
+            document.getElementById("fathersoccupation").style.display = 'none';
+            document.getElementById("fathersannualincome").style.display = 'none';
+            document.getElementById("mothersannualincome").style.display = 'none';
+            document.getElementById("guardianannualincomes").style.display = 'none';
+            document.getElementById("fatherlivingstatus").style.display = 'none';
+            document.getElementById("proficiencyinarts").style.display = 'none';
+            document.getElementById("nameoftheart").style.display = 'none';
+            document.getElementById("statenationalinternational").style.display = 'none';
+            document.getElementById("fatheryearofdeath").style.display = 'none';
+            document.getElementById("differentlyableddiv").style.display = 'none';
+            document.getElementById("differentlyabled").style.display = 'none';
+            document.getElementById("typeofdisabilitydiv").style.display = 'none';
+            document.getElementById("typesdisabilityid").style.display = 'none';
+            document.getElementById("percentofdeformitydiv").style.display = 'none';
+            document.getElementById("percentdeformityid").style.display = 'none';
+
+
+
+        } else if (categoryid == 1) {
+
+            document.getElementById("carrear").value = '';
+            document.getElementById("coursecompletionyear").value = 0;
+            document.getElementById("alumnino").value = "";
+            document.getElementById("fatheroccupation").value = 0;
+            document.getElementById("fatherannualincome").value = 0;
+            document.getElementById("motherannualincome").value = 0;
+            document.getElementById("guardianannualincome").value = 0;
+            document.getElementById("fatheralive").value = "Alive";
+            document.getElementById("dateofyear").value = "";
+            document.getElementById("proficiency").value = "";
+            document.getElementById("artname").value = "";
+            document.getElementById("statedetails").value = "";
+            document.getElementById("differentlyabled").value = 0;
+            document.getElementById("typesdisability").value = 0;
+            document.getElementById("percentdeformity").value = 0;
+            document.getElementById("typesdisability").disabled = true;
+            document.getElementById("percentdeformity").disabled = true;
+
+            // document.getElementById("noofarrearsresult").style.display = '';
+            document.getElementById("yearofcoursecompletion").style.display = 'none';
+            document.getElementById("aluminimembershipnumber").style.display = 'none';
+            document.getElementById("fathersoccupation").style.display = 'none';
+            document.getElementById("fathersannualincome").style.display = 'none';
+            document.getElementById("mothersannualincome").style.display = 'none';
+            document.getElementById("guardianannualincomes").style.display = 'none';
+            document.getElementById("fatherlivingstatus").style.display = 'none';
+            document.getElementById("proficiencyinarts").style.display = 'none';
+            document.getElementById("nameoftheart").style.display = 'none';
+            document.getElementById("statenationalinternational").style.display = 'none';
+            document.getElementById("fatheryearofdeath").style.display = 'none';
+            document.getElementById("differentlyableddiv").style.display = 'none';
+            document.getElementById("differentlyabled").style.display = 'none';
+            document.getElementById("typeofdisabilitydiv").style.display = 'none';
+            document.getElementById("typesdisabilityid").style.display = 'none';
+            document.getElementById("percentofdeformitydiv").style.display = 'none';
+            document.getElementById("percentdeformityid").style.display = 'none';
+        } else if (categoryid == 2) {
+
+            document.getElementById("carrear").value = '';
+            document.getElementById("coursecompletionyear").value = 0;
+            document.getElementById("alumnino").value = "";
+            document.getElementById("fatheroccupation").value = 0;
+            document.getElementById("fatherannualincome").value = 0;
+            document.getElementById("motherannualincome").value = 0;
+            document.getElementById("guardianannualincome").value = 0;
+            document.getElementById("fatheralive").value = "Alive";
+            document.getElementById("dateofyear").value = "";
+            document.getElementById("proficiency").value = "";
+            document.getElementById("artname").value = "";
+            document.getElementById("statedetails").value = "";
+            document.getElementById("differentlyabled").value = 0;
+            document.getElementById("typesdisability").value = 0;
+            document.getElementById("percentdeformity").value = 0;
+            document.getElementById("typesdisability").disabled = true;
+            document.getElementById("percentdeformity").disabled = true;
+
+            //document.getElementById("noofarrearsresult").style.display = '';
+            document.getElementById("yearofcoursecompletion").style.display = 'none';
+            document.getElementById("aluminimembershipnumber").style.display = 'none';
+            document.getElementById("fathersoccupation").style.display = 'none';
+            document.getElementById("fathersannualincome").style.display = 'none';
+            document.getElementById("mothersannualincome").style.display = 'none';
+            document.getElementById("guardianannualincomes").style.display = 'none';
+            document.getElementById("fatherlivingstatus").style.display = 'none';
+            document.getElementById("proficiencyinarts").style.display = 'none';
+            document.getElementById("nameoftheart").style.display = 'none';
+            document.getElementById("statenationalinternational").style.display = 'none';
+            document.getElementById("fatheryearofdeath").style.display = 'none';
+            document.getElementById("differentlyableddiv").style.display = 'none';
+            document.getElementById("differentlyabled").style.display = 'none';
+            document.getElementById("typeofdisabilitydiv").style.display = 'none';
+            document.getElementById("typesdisabilityid").style.display = 'none';
+            document.getElementById("percentofdeformitydiv").style.display = 'none';
+            document.getElementById("percentdeformityid").style.display = 'none';
+        } else if (categoryid == 3) {
+            document.getElementById("carrear").value = '';
+            document.getElementById("coursecompletionyear").value = 0;
+            document.getElementById("alumnino").value = "";
+            document.getElementById("fatheroccupation").value = 0;
+            document.getElementById("fatherannualincome").value = 0;
+            document.getElementById("motherannualincome").value = 0;
+            document.getElementById("guardianannualincome").value = 0;
+            document.getElementById("fatheralive").value = "Alive";
+            document.getElementById("dateofyear").value = "";
+            document.getElementById("proficiency").value = "";
+            document.getElementById("artname").value = "";
+            document.getElementById("statedetails").value = "";
+            document.getElementById("differentlyabled").value = 0;
+            document.getElementById("typesdisability").value = 0;
+            document.getElementById("percentdeformity").value = 0;
+            document.getElementById("typesdisability").disabled = true;
+            document.getElementById("percentdeformity").disabled = true;   
+
+            //document.getElementById("noofarrearsresult").style.display = '';
+            document.getElementById("yearofcoursecompletion").style.display = 'none';
+            document.getElementById("fathersoccupation").style.display = 'none';
+            document.getElementById("fathersannualincome").style.display = 'none';
+            document.getElementById("mothersannualincome").style.display = 'none';
+            document.getElementById("guardianannualincomes").style.display = 'none';
+            document.getElementById("fatherlivingstatus").style.display = 'none';
+            document.getElementById("aluminimembershipnumber").style.display = 'none';
+            document.getElementById("proficiencyinarts").style.display = 'none';
+            document.getElementById("nameoftheart").style.display = 'none';
+            document.getElementById("statenationalinternational").style.display = 'none';
+            document.getElementById("differentlyableddiv").style.display = 'none';
+            document.getElementById("differentlyabled").style.display = 'none';
+            document.getElementById("typeofdisabilitydiv").style.display = 'none';
+            document.getElementById("typesdisabilityid").style.display = 'none';
+            document.getElementById("percentofdeformitydiv").style.display = 'none';
+            document.getElementById("percentdeformityid").style.display = 'none';
+            document.getElementById("fatheryearofdeath").style.display = 'none';
+        } else if (categoryid == 4) {
+            document.getElementById("carrear").value = '';
+            document.getElementById("coursecompletionyear").value = 0;
+            document.getElementById("alumnino").value = "";
+            document.getElementById("fatheroccupation").value = 0;
+            document.getElementById("fatherannualincome").value = 0;
+            document.getElementById("motherannualincome").value = 0;
+            document.getElementById("guardianannualincome").value = 0;
+            document.getElementById("fatheralive").value = "Alive";
+            document.getElementById("dateofyear").value = "";
+            document.getElementById("proficiency").value = "";
+            document.getElementById("artname").value = "";
+            document.getElementById("statedetails").value = "";
+            document.getElementById("differentlyabled").value = 0;
+            document.getElementById("typesdisability").value = 0;
+            document.getElementById("percentdeformity").value = 0;
+            document.getElementById("typesdisability").disabled = true;
+            document.getElementById("percentdeformity").disabled = true;
+
+            // document.getElementById("noofarrearsresult").style.display = '';
+            document.getElementById("yearofcoursecompletion").style.display = 'none';
+            document.getElementById("fathersoccupation").style.display = '';
+            document.getElementById("fathersannualincome").style.display = '';
+            document.getElementById("mothersannualincome").style.display = '';
+            document.getElementById("guardianannualincomes").style.display = '';
+            document.getElementById("fatherlivingstatus").style.display = '';
+            // document.getElementById("differentlyableddiv").style.display = '';
+            // document.getElementById("differentlyabled").style.display = '';
+            // document.getElementById("typeofdisabilitydiv").style.display = '';
+            // document.getElementById("typesdisabilityid").style.display = '';
+            // document.getElementById("percentofdeformitydiv").style.display = '';
+            // document.getElementById("percentdeformityid").style.display = '';
+            document.getElementById("aluminimembershipnumber").style.display = 'none';
+            document.getElementById("proficiencyinarts").style.display = 'none';
+            document.getElementById("nameoftheart").style.display = 'none';
+            document.getElementById("statenationalinternational").style.display = 'none';
+            document.getElementById("fatheryearofdeath").style.display = 'none';
+        } else if (categoryid == 5) {
+            document.getElementById("carrear").value = '';
+            document.getElementById("coursecompletionyear").value = 0;
+            document.getElementById("alumnino").value = "";
+            document.getElementById("fatheroccupation").value = 0;
+            document.getElementById("fatherannualincome").value = 0;
+            document.getElementById("motherannualincome").value = 0;
+            document.getElementById("guardianannualincome").value = 0;
+            document.getElementById("fatheralive").value = "Alive";
+            document.getElementById("dateofyear").value = "";
+            document.getElementById("proficiency").value = "";
+            document.getElementById("artname").value = "";
+            document.getElementById("statedetails").value = "";
+            document.getElementById("differentlyabled").value = 0;
+            document.getElementById("typesdisability").value = 0;
+            document.getElementById("percentdeformity").value = 0;
+            document.getElementById("typesdisability").disabled = true;
+            document.getElementById("percentdeformity").disabled = true;
+
+            // document.getElementById("noofarrearsresult").style.display = '';
+            document.getElementById("yearofcoursecompletion").style.display = 'none';
+            document.getElementById("fathersoccupation").style.display = 'none';
+            document.getElementById("proficiencyinarts").style.display = '';
+            document.getElementById("nameoftheart").style.display = '';
+            document.getElementById("statenationalinternational").style.display = '';
+            document.getElementById("aluminimembershipnumber").style.display = 'none';
+            document.getElementById("fathersannualincome").style.display = 'none';
+            document.getElementById("mothersannualincome").style.display = 'none';
+            document.getElementById("guardianannualincomes").style.display = 'none';
+            document.getElementById("fatherlivingstatus").style.display = 'none';
+            document.getElementById("fatheryearofdeath").style.display = 'none';
+            document.getElementById("differentlyableddiv").style.display = 'none';
+            document.getElementById("differentlyabled").style.display = 'none';
+            document.getElementById("typeofdisabilitydiv").style.display = 'none';
+            document.getElementById("typesdisabilityid").style.display = 'none';
+            document.getElementById("percentofdeformitydiv").style.display = 'none';
+            document.getElementById("percentdeformityid").style.display = 'none';
+        } else if (categoryid == 7) {
+            document.getElementById("carrear").value = '';
+            document.getElementById("coursecompletionyear").value = 0;
+            document.getElementById("alumnino").value = "";
+            document.getElementById("fatheroccupation").value = 0;
+            document.getElementById("fatherannualincome").value = 0;
+            document.getElementById("motherannualincome").value = 0;
+            document.getElementById("guardianannualincome").value = 0;
+            document.getElementById("fatheralive").value = "Alive";
+            document.getElementById("dateofyear").value = "";
+            document.getElementById("proficiency").value = "";
+            document.getElementById("artname").value = "";
+            document.getElementById("statedetails").value = "";
+            document.getElementById("differentlyabled").value = 0;
+            document.getElementById("typesdisability").value = 0;
+            document.getElementById("percentdeformity").value = 0;
+            document.getElementById("typesdisability").disabled = true;
+            document.getElementById("percentdeformity").disabled = true;
+
+            //document.getElementById("noofarrearsresult").style.display = '';
+            document.getElementById("yearofcoursecompletion").style.display = '';
+            document.getElementById("aluminimembershipnumber").style.display = '';
+            document.getElementById("fathersoccupation").style.display = '';
+            document.getElementById("fathersannualincome").style.display = 'none';
+            document.getElementById("mothersannualincome").style.display = 'none';
+            document.getElementById("guardianannualincomes").style.display = 'none';
+            document.getElementById("fatherlivingstatus").style.display = 'none';
+            document.getElementById("proficiencyinarts").style.display = 'none';
+            document.getElementById("nameoftheart").style.display = 'none';
+            document.getElementById("statenationalinternational").style.display = 'none';
+            document.getElementById("fatheryearofdeath").style.display = 'none';
+            document.getElementById("differentlyableddiv").style.display = 'none';
+            document.getElementById("differentlyabled").style.display = 'none';
+            document.getElementById("typeofdisabilitydiv").style.display = 'none';
+            document.getElementById("typesdisabilityid").style.display = 'none';
+            document.getElementById("percentofdeformitydiv").style.display = 'none';
+            document.getElementById("percentdeformityid").style.display = 'none';
+        } else if (categoryid == 8) {
+            document.getElementById("carrear").value = '';
+            document.getElementById("coursecompletionyear").value = 0;
+            document.getElementById("alumnino").value = "";
+            document.getElementById("fatheroccupation").value = 0;
+            document.getElementById("fatherannualincome").value = 0;
+            document.getElementById("motherannualincome").value = 0;
+            document.getElementById("guardianannualincome").value = 0;
+            document.getElementById("fatheralive").value = "Alive";
+            document.getElementById("dateofyear").value = "";
+            document.getElementById("proficiency").value = "";
+            document.getElementById("artname").value = "";
+            document.getElementById("statedetails").value = "";
+            document.getElementById("differentlyabled").value = 0;
+            document.getElementById("typesdisability").value = 0;
+            document.getElementById("percentdeformity").value = 0;
+            document.getElementById("typesdisability").disabled = true;
+            document.getElementById("percentdeformity").disabled = true;
+
+            //document.getElementById("noofarrearsresult").style.display = '';
+            document.getElementById("yearofcoursecompletion").style.display = 'none';
+            document.getElementById("aluminimembershipnumber").style.display = 'none';
+            document.getElementById("fathersoccupation").style.display = 'none';
+            document.getElementById("fathersannualincome").style.display = 'none';
+            document.getElementById("mothersannualincome").style.display = 'none';
+            document.getElementById("guardianannualincomes").style.display = 'none';
+            document.getElementById("fatherlivingstatus").style.display = 'none';
+            document.getElementById("proficiencyinarts").style.display = 'none';
+            document.getElementById("nameoftheart").style.display = 'none';
+            document.getElementById("statenationalinternational").style.display = 'none';
+            document.getElementById("fatheryearofdeath").style.display = 'none';
+            document.getElementById("differentlyableddiv").style.display = 'none';
+            document.getElementById("differentlyabled").style.display = 'none';
+            document.getElementById("typeofdisabilitydiv").style.display = 'none';
+            document.getElementById("typesdisabilityid").style.display = 'none';
+            document.getElementById("percentofdeformitydiv").style.display = 'none';
+            document.getElementById("percentdeformityid").style.display = 'none';
+        } else if (categoryid == 9) {
+
+            document.getElementById("carrear").value = '';
+            document.getElementById("coursecompletionyear").value = 0;
+            document.getElementById("alumnino").value = "";
+            document.getElementById("fatheroccupation").value = 0;
+            document.getElementById("fatherannualincome").value = 0;
+            document.getElementById("motherannualincome").value = 0;
+            document.getElementById("guardianannualincome").value = 0;
+            document.getElementById("fatheralive").value = "Alive";
+            document.getElementById("dateofyear").value = "";
+            document.getElementById("proficiency").value = "";
+            document.getElementById("artname").value = "";
+            document.getElementById("statedetails").value = "";
+            document.getElementById("differentlyabled").value = 0;
+            document.getElementById("typesdisability").value = 0;
+            document.getElementById("percentdeformity").value = 0;
+            document.getElementById("typesdisability").disabled = true;
+            document.getElementById("percentdeformity").disabled = true;
+
+            //document.getElementById("noofarrearsresult").style.display = '';
+            document.getElementById("yearofcoursecompletion").style.display = 'none';
+            document.getElementById("fathersoccupation").style.display = '';
+            document.getElementById("fathersannualincome").style.display = '';
+            document.getElementById("mothersannualincome").style.display = '';
+            document.getElementById("guardianannualincomes").style.display = '';
+            document.getElementById("fatherlivingstatus").style.display = '';
+            document.getElementById("aluminimembershipnumber").style.display = 'none';
+            document.getElementById("proficiencyinarts").style.display = 'none';
+            document.getElementById("nameoftheart").style.display = 'none';
+            document.getElementById("statenationalinternational").style.display = 'none';
+            document.getElementById("differentlyableddiv").style.display = 'none';
+            document.getElementById("differentlyabled").style.display = 'none';
+            document.getElementById("typeofdisabilitydiv").style.display = 'none';
+            document.getElementById("typesdisabilityid").style.display = 'none';
+            document.getElementById("percentofdeformitydiv").style.display = 'none';
+            document.getElementById("percentdeformityid").style.display = 'none';
+            document.getElementById("fatheryearofdeath").style.display = 'none';
+        } else if (categoryid == 10) {
+
+            document.getElementById("carrear").value = '';
+            document.getElementById("coursecompletionyear").value = 0;
+            document.getElementById("alumnino").value = "";
+            document.getElementById("fatheroccupation").value = 0;
+            document.getElementById("fatherannualincome").value = 0;
+            document.getElementById("motherannualincome").value = 0;
+            document.getElementById("guardianannualincome").value = 0;
+            document.getElementById("fatheralive").value = "Alive";
+            document.getElementById("dateofyear").value = "";
+            document.getElementById("proficiency").value = "";
+            document.getElementById("artname").value = "";
+            document.getElementById("statedetails").value = "";
+            document.getElementById("differentlyabled").value = 0;
+            document.getElementById("typesdisability").value = 0;
+            document.getElementById("percentdeformity").value = 0;
+            document.getElementById("typesdisability").disabled = true;
+            document.getElementById("percentdeformity").disabled = true;
+
+            //document.getElementById("noofarrearsresult").style.display = '';
+            document.getElementById("yearofcoursecompletion").style.display = 'none';
+            document.getElementById("fathersoccupation").style.display = '';
+            document.getElementById("fatheroccupation").value = 0;
+            document.getElementById("fathersannualincome").style.display = '';
+            document.getElementById("fathersannualincome").value = 0;
+            document.getElementById("mothersannualincome").style.display = '';
+            document.getElementById("mothersannualincome").value = 0;
+            document.getElementById("guardianannualincomes").style.display = '';
+            document.getElementById("guardianannualincomes").value = 0;
+            document.getElementById("fatherlivingstatus").style.display = 'none';
+            document.getElementById("fatherlivingstatus").value = 0;
+            document.getElementById("proficiencyinarts").style.display = 'none';
+            document.getElementById("proficiencyinarts").value = 0;
+            document.getElementById("nameoftheart").style.display = 'none';
+            document.getElementById("nameoftheart").value = 0;
+            document.getElementById("statenationalinternational").style.display = 'none';
+            document.getElementById("statenationalinternational").value = 0;
+            document.getElementById("fatheryearofdeath").style.display = 'none';
+            document.getElementById("fatheryearofdeath").value = 0;
+            document.getElementById("differentlyableddiv").style.display = 'none';
+            document.getElementById("differentlyabled").style.display = 'none';
+            document.getElementById("differentlyabled").value = 0;
+            document.getElementById("typeofdisabilitydiv").style.display = 'none';
+            document.getElementById("typesdisabilityid").style.display = 'none';
+            document.getElementById("typesdisabilityid").value = 0;
+            document.getElementById("percentofdeformitydiv").style.display = 'none';
+            document.getElementById("percentdeformityid").style.display = 'none';
+            document.getElementById("percentdeformityid").value = 0;
+            document.getElementById("aluminimembershipnumber").style.display = 'none';
+            document.getElementById("aluminimembershipnumber").value = 0;
+        }
+    }
+
+
+
+
+    function funvalidatefields() {
+        var subjectwisedetect = document.getElementById("subjectwisedetect").value;
+        var avgattendance = 0;
+        var cgpa = document.getElementById("cgpa").value;
+        var noofarrears = document.getElementById("noofarrears").value;
+        var breakstudy = document.getElementById("breakstudy").value;
+        var malpractice = document.getElementById("malpractice").value;
+        var disciplinarydetails = document.getElementById("disciplinarydetails").value;
+        var achievementdetails = document.getElementById("achievementdetails").value;
+//        var listofarrears = document.getElementById("activestatus1").value;
+        var categoryid = document.getElementById("category").value;
+        var subcategoryid = document.getElementById("subcategory").value;
+        var section = document.getElementById("section").value;
+        var differentlyabled = document.getElementById("differentlyabled").value;
+        var typesdisability = document.getElementById("typesdisability").value;
+        var percentdeformity = document.getElementById("percentdeformity").value;
+
+        //var currentarrear = document.getElementById("carrear").value;
+        var alumnino = document.getElementById("alumnino").value;
+        var fatheroccupation = document.getElementById("fatheroccupation").value;
+        var fatherannualincome = document.getElementById("fatherannualincome").value;
+        var motherannualincome = document.getElementById("motherannualincome").value;
+        var guardianannualincome = document.getElementById("guardianannualincome").value;
+        var fatherdeathyear = document.getElementById("dateofyear").value;
+        var proficiency = document.getElementById("proficiency").value;
+        var artname = document.getElementById("artname").value;
+        var statedetails = document.getElementById("statedetails").value;
+        var isfatherlive = document.getElementById("fatheralive").value;
+        var coursecompletionyear = document.getElementById("coursecompletionyear").value;
+        if (cgpa.trim() == "" || cgpa == null || cgpa == 0 || cgpa.length == 0) {
+            alert("Please enter your current cgpa");
+            document.getElementById("cgpa").focus();
+            return false;
+        }
+
+        if (noofarrears.trim() == "" || noofarrears == null || noofarrears.length == 0) {
+            alert("Please enter your  no. of arrears count");
+            document.getElementById("noofarrears").focus();
+            return false;
+        }
+//        if (listofarrears.trim() == "" || listofarrears == null || listofarrears.length == 0) {
+//            alert("Please enter your list of arrears.If you don't have,enter 'Not applicable'");
+//            document.getElementById("listofarrears").focus();
+//            return false;
+//        }
+        if (subjectwisedetect.trim() == "" || subjectwisedetect == null || subjectwisedetect.length == 0) {
+            alert("Please enter No.of subject wise detentions");
+            document.getElementById("subjectwisedetect").focus();
+            return false;
+        }
+
+//                if (avgattendance.trim() == "" || avgattendance == null || avgattendance.length == 0) {
+//                    alert("Please enter Avg. % of attendance");
+//                    document.getElementById("avgattendance").focus();
+//                    return false;
+//                }
+
+
+
+        //                     if(breakstudy.trim() == ""||breakstudy==null ){
+        //                        alert("Please enter your  Break in  study");
+        //                        document.getElementById("breakstudy").focus();
+        //                        return false;
+        //                    } 
+
+        if (malpractice.trim() == "" || malpractice == null || malpractice.length == 0) {
+            alert("Please enter your malpractice details.If you don't have,enter 'Not applicable'");
+            document.getElementById("malpractice").focus();
+            return false;
+        }
+        if (disciplinarydetails.trim() == "" || disciplinarydetails == null || disciplinarydetails.length == 0) {
+            alert("Please enter your Disciplinary details.If you don't have,enter 'Not applicable'");
+            document.getElementById("disciplinarydetails").focus();
+            return false;
+        }
+
+//                     if(achievementdetails.trim() == ""||achievementdetails==null ){
+//                        alert("Please enter your Achievement  details.If you don't have,enter 'Not applicable'");
+//                        document.getElementById("achievementdetails").focus();
+//                        return false;
+//                    }
+
+
+
+
+        if (categoryid.trim() == "" || categoryid == null || categoryid == 0) {
+            alert("Please select your main category");
+            return false;
+        }
+        if (subcategoryid.trim() == "" || subcategoryid == null || subcategoryid == 0) {
+            alert("Please select your Sub category");
+            return false;
+        }
+        if (section.trim() == "" || section == null || section == 0) {
+            alert("Please select section");
+            return false;
+        }
+
+        if (categoryid == 1) {
+//                    if (currentarrear.trim() == "" || currentarrear == null || currentarrear.length == 0) {
+//                        alert("Please enter your no. of arrears count");
+//                        document.getElementById("carrear").focus();
+//                        return false;
+//                    }
+        } else if (categoryid == 2) {
+//                    if (currentarrear.trim() == "" || currentarrear == null || currentarrear.length == 0) {
+//                        alert("Please enter your no. of arrears count");
+//                        document.getElementById("carrear").focus();
+//                        return false;
+//                    }
+        } else if (categoryid == 3) {
+            if(subcategoryid.trim()==9){
+//                    if (currentarrear.trim() == "" || currentarrear == null || currentarrear.length == 0) {
+//                        alert("Please enter your no. of arrears count");
+//                        document.getElementById("carrear").focus();
+//                        return false;
+//                    }
+            if (fatheroccupation.trim() == "" || fatheroccupation == null || fatheroccupation == 0) {
+                alert("Please select your Father's occupation");
+                return false;
+            }
+            if (fatherannualincome.trim() == "" || fatherannualincome == null || fatherannualincome == 0) {
+                alert("Please select your Father's Annual income");
+                return false;
+            }
+            if (motherannualincome.trim() == "" || motherannualincome == null || motherannualincome == 0) {
+                alert("Please select your Mother's annual income");
+                return false;
+            }
+            if (guardianannualincome.trim() == "" || guardianannualincome == null || guardianannualincome == 0) {
+                alert("Please select your Guardian's Annual income ");
+                return false;
+            }
+
+            if (isfatherlive == "NotAlive") {
+                if (fatherdeathyear.trim() == "" || fatherdeathyear == null) {
+                    alert("Please enter Year of death of father");
+                    return false;
+                }
+            }        
+            }  } else if (categoryid == 4) {
+//                    if (differentlyabled.trim() == "" || differentlyabled == null || differentlyabled == 0) {
+//                        alert("Please select Differentlyabled or not");
+//                        return false;
+//                    }
+//                    if (differentlyabled == 1) {
+//                        if (typesdisability.trim() == "" || typesdisability == null || typesdisability == 0) {
+//                            alert("Please select your type of disability");
+//                            return false;
+//                        }
+//                        if (percentdeformity.trim() == "" || percentdeformity == null || percentdeformity == 0) {
+//                            alert("Please select your percentagr of deformity");
+//                            return false;
+//                        }
+//                    }
+//                    if (currentarrear.trim() == "" || currentarrear == null || currentarrear.length == 0) {
+//                        alert("Please enter your no. of arrears count");
+//                        document.getElementById("carrear").focus();
+//                        return false;
+//                    }
+            if (fatheroccupation.trim() == "" || fatheroccupation == null || fatheroccupation == 0) {
+                alert("Please select your Father's occupation");
+                return false;
+            }
+            if (fatherannualincome.trim() == "" || fatherannualincome == null || fatherannualincome == 0) {
+                alert("Please select your Father's Annual income");
+                return false;
+            }
+            if (motherannualincome.trim() == "" || motherannualincome == null || motherannualincome == 0) {
+                alert("Please select your Mother's annual income");
+                return false;
+            }
+            if (guardianannualincome.trim() == "" || guardianannualincome == null || guardianannualincome == 0) {
+                alert("Please select your Guardian's Annual income ");
+                return false;
+            }
+            if (isfatherlive == "NotAlive") {
+                if (fatherdeathyear.trim() == "" || fatherdeathyear == null) {
+                    alert("Please enter Year of death of father");
+                    return false;
+                }
+            }
+        } else if (categoryid == 5) {
+//                    if (currentarrear.trim() == "" || currentarrear == null || currentarrear.length == 0) {
+//                        alert("Please enter your no. of arrears count");
+//                        document.getElementById("carrear").focus();
+//                        return false;
+//                    }
+//                    if (fatheroccupation.trim() == "" || fatheroccupation == null || fatheroccupation == 0) {
+//                        alert("Please select your Father's occupation");
+//                        return false;
+//                    }
+            if (proficiency.trim() == "" || proficiency == null) {
+                alert("Please enter your Proficiency in Arts & culture");
+                document.getElementById("proficiency").focus();
+                return false;
+            }
+            if (artname.trim() == "" || artname == null) {
+                alert("Please enter your Name of the Art");
+                document.getElementById("artname").focus();
+                return false;
+            }
+            if (statedetails.trim() == "" || statedetails == null) {
+                alert("Please enter State / National / International Level");
+                document.getElementById("statedetails").focus();
+                return false;
+            }
+
+        } else if (categoryid == 7) {
+
+            if (coursecompletionyear.trim() == "" || coursecompletionyear == null || coursecompletionyear == 0) {
+                alert("Please select Year of Course Completion");
+                return false;
+            }
+//                    if (currentarrear.trim() == "" || currentarrear == null || currentarrear.length == 0) {
+//                        alert("Please enter your no. of arrears count");
+//                        document.getElementById("carrear").focus();
+//                        return false;
+//                    }
+            if (fatheroccupation.trim() == "" || fatheroccupation == null || fatheroccupation == 0) {
+                alert("Please select your Father's occupation");
+                return false;
+            }
+        } else if (categoryid == 8) {
+//                    if (currentarrear.trim() == "" || currentarrear == null || currentarrear.length == 0) {
+//                        alert("Please enter your no. of arrears count");
+//                        document.getElementById("carrear").focus();
+//                        return false;
+//                    }
+        } else if (categoryid == 9) {
+//                    if (currentarrear.trim() == "" || currentarrear == null || currentarrear.length == 0) {
+//                        alert("Please enter your no. of arrears count");
+//                        document.getElementById("carrear").focus();
+//                        return false;
+//                    }
+            if (fatheroccupation.trim() == "" || fatheroccupation == null || fatheroccupation == 0) {
+                alert("Please select your Father's occupation");
+                return false;
+            }
+            if (fatherannualincome.trim() == "" || fatherannualincome == null || fatherannualincome == 0) {
+                alert("Please select your Father's Annual income");
+                return false;
+            }
+            if (motherannualincome.trim() == "" || motherannualincome == null || motherannualincome == 0) {
+                alert("Please select your Mother's annual income");
+                return false;
+            }
+            if (guardianannualincome.trim() == "" || guardianannualincome == null || guardianannualincome == 0) {
+                alert("Please select your Guardian's Annual income ");
+                return false;
+            }
+            if (isfatherlive == "NotAlive") {
+                if (fatherdeathyear.trim() == "" || fatherdeathyear == null) {
+                    alert("Please enter Year of death of father");
+                    return false;
+                }
+            }
+        } else if (categoryid == 10) {
+            if (fatheroccupation.trim() == "" || fatheroccupation == null || fatheroccupation == 0) {
+                alert("Please select your Father's occupation");
+                return false;
+            }
+            if (fatherannualincome.trim() == "" || fatherannualincome == null || fatherannualincome == 0) {
+                alert("Please select your Father's Annual income");
+                return false;
+            }
+            if (motherannualincome.trim() == "" || motherannualincome == null || motherannualincome == 0) {
+                alert("Please select your Mother's annual income");
+                return false;
+            }
+            if (guardianannualincome.trim() == "" || guardianannualincome == null || guardianannualincome == 0) {
+                alert("Please select your Guardian's Annual income ");
+                return false;
+            }
+        }
+        if (!document.getElementById("myBtn").checked) {
+            alert("Please accept the Terms and Conditions");
+            return false;
+        }
+
+        return true;
+    }
+
+
+    function submitApplyforScholarship() {         
+
+        if (funvalidatefields()) {
+
+            try {
+                var studentname = document.getElementById("studentname").htmlFor;
+                var studentid = document.getElementById("studentid").htmlFor;
+                var registerno = document.getElementById("registerno").htmlFor;
+                var srmjeeerank = document.getElementById("srmjeeerank").htmlFor;
+                var dob = document.getElementById("dob").htmlFor;
+                var courseid = document.getElementById("courseid").htmlFor;
+                var branchid = document.getElementById("branchid").htmlFor;
+                var officeid = document.getElementById("officeid").htmlFor;
+                var yearofadmission = document.getElementById("yearofadmission").htmlFor;
+                var semesterid = document.getElementById("semesterid").htmlFor;
+                var scholarshipavailed = document.getElementById("scholarshipavailed").htmlFor;
+                var personalemail = document.getElementById("personalemail").htmlFor;
+                var srmemail = document.getElementById("srmemail").htmlFor;
+                var studentmobileno = document.getElementById("studentmobileno").htmlFor;
+                var fathername = document.getElementById("fathername").htmlFor;
+                var fathermobileno = document.getElementById("fathermobileno").htmlFor;
+                var mothername = document.getElementById("mothername").htmlFor;
+                var communityid = document.getElementById("communityid").htmlFor;
+                var address = document.getElementById("address").htmlFor;
+                var amountfixed = document.getElementById("amountfixed").htmlFor;
+                var amountdue = document.getElementById("amountdue").htmlFor;
+                var financialyeardetails = document.getElementById("hdnfinancialyeardetails").value;
+                var subjectwisedetect = document.getElementById("subjectwisedetect").value;                               
+
+                //var avgattendance = document.getElementById("avgattendance").value;
+                var avgattendance = 0;
+
+                var cgpa = document.getElementById("cgpa").value;
+                var noofarrears = document.getElementById("noofarrears").value;
+                var breakstudy = document.getElementById("breakstudy").value;
+                var malpractice = document.getElementById("malpractice").value;
+                var disciplinarydetails = document.getElementById("disciplinarydetails").value;
+                var achievementdetails = document.getElementById("achievementdetails").value;
+                var arrercount = document.getElementById("hdncount").value;
+                // alert(arrercount)
+                var selectedreview = "", listofarrears = "";
+                for (var i = 1; i <= arrercount; i++) {
+                    var selected_value = document.getElementById('activestatus' + i).value;
+                    listofarrears += "" + selected_value + ",";
+                }
+                listofarrears = listofarrears.substr(0, listofarrears.length - 1);
+                //alert("listofarrears="+listofarrears);
+
+//                    var listofarrears = document.getElementById("activestatus1").value;
+
+                var categoryid = document.getElementById("category").value;
+                var subcategoryid = document.getElementById("subcategory").value;
+                var section = document.getElementById("section").value;
+                var differentlyabled = document.getElementById("differentlyabled").value;
+                var typesdisability = document.getElementById("typesdisability").value;
+                var percentdeformity = document.getElementById("percentdeformity").value;
+                var currentarrear = 0;
+                //var currentarrear = document.getElementById("carrear").value;
+                var alumnino = document.getElementById("alumnino").value;
+                var fatheroccupation = document.getElementById("fatheroccupation").value;
+                var fatherannualincome = document.getElementById("fatherannualincome").value;
+                var motherannualincome = document.getElementById("motherannualincome").value;
+                var guardianannualincome = document.getElementById("guardianannualincome").value;
+
+                var isfatherlive = "";
+                if (categoryid == 3 || categoryid == 4 || categoryid == 9) {
+                    isfatherlive = document.getElementById("fatheralive").value;
+                } else {
+                    isfatherlive = 'NA';
+                }
+                var fatherdeathyear = "";
+                if (isfatherlive == "NotAlive") {
+                    var fatherdeathyear = document.getElementById("dateofyear").value;
+                } else {
+                    fatherdeathyear = 0;
+                }
+
+                var proficiency = document.getElementById("proficiency").value;
+                var artname = document.getElementById("artname").value;
+                var statedetails = document.getElementById("statedetails").value;
+                var dbsubjectwisedetect = document.getElementById("dbsubjectwisedetect").htmlFor;
+                var dbcgpa = document.getElementById("dbcgpa").htmlFor;
+                var dbnoofarrears = document.getElementById("dbnoofarrears").htmlFor;
+                var dbbreakstudy = document.getElementById("dbbreakstudy").htmlFor;
+                var dbmalpractice = document.getElementById("dbmalpractice").htmlFor;
+                var dbdisciplinarydetails = document.getElementById("dbdisciplinarydetails").htmlFor;
+                var dbachievementdetails = document.getElementById("dbachievementdetails").htmlFor;
+                var dblistofarrears = document.getElementById("dblistofarrears").htmlFor;
+                var coursecompletionyear = document.getElementById("coursecompletionyear").value;
+
+
+                xmlHttp = GetXmlHttpObject();
+                if (xmlHttp == null) {
+                    alert("Browser doesnot support");
+                    return;
+                }
+
+                var y = confirm("You cannot edit this form once submitted. Please ensure the details furnished and proceed");
+                if (y == true) {
+                    var val = "&studentname=" + studentname + "&studentid=" + studentid + "&registerno=" + registerno + "&srmjeeerank=" + srmjeeerank + "&dob=" + dob +
+                            "&courseid=" + courseid + "&branchid=" + branchid + "&officeid=" + officeid + "&yearofadmission=" + yearofadmission + "&semesterid=" + semesterid +
+                            "&scholarshipavailed=" + scholarshipavailed + "&personalemail=" + personalemail + "&srmemail=" + srmemail + "&studentmobileno=" + studentmobileno +
+                            "&fathername=" + fathername + "&fathermobileno=" + fathermobileno + "&mothername=" + mothername + "&communityid=" + communityid + "&address=" + address +
+                            "&amountfixed=" + amountfixed + "&amountdue=" + amountdue + "&financialyeardetails=" + financialyeardetails + "&subjectwisedetect=" + subjectwisedetect +
+                            "&avgattendance=" + avgattendance + "&cgpa=" + cgpa + "&noofarrears=" + noofarrears + "&breakstudy=" + breakstudy + "&malpractice=" + malpractice +
+                            "&disciplinarydetails=" + disciplinarydetails + "&achievementdetails=" + achievementdetails + "&listofarrears=" + listofarrears + "&categoryid=" + categoryid +
+                            "&subcategoryid=" + subcategoryid + "&section=" + section + "&differentlyabled=" + differentlyabled + "&typesdisability=" + typesdisability +
+                            "&percentdeformity=" + percentdeformity + "&currentarrear=" + currentarrear + "&alumnino=" + alumnino + "&fatheroccupation=" + fatheroccupation +
+                            "&fatherannualincome=" + fatherannualincome + "&motherannualincome=" + motherannualincome + "&guardianannualincome=" + guardianannualincome +
+                            "&fatherdeathyear=" + fatherdeathyear + "&proficiency=" + proficiency + "&artname=" + artname + "&statedetails=" + statedetails +
+                            "&dbsubjectwisedetect=" + dbsubjectwisedetect + "&dbcgpa=" + dbcgpa + "&dbnoofarrears=" + dbnoofarrears + "&dbbreakstudy=" + dbbreakstudy +
+                            "&dbmalpractice=" + dbmalpractice + "&dbdisciplinarydetails=" + dbdisciplinarydetails + "&dbachievementdetails=" + dbachievementdetails +
+                            "&dblistofarrears=" + dblistofarrears + "&isfatherlive=" + isfatherlive + "&coursecompletionyear=" + coursecompletionyear;
+                    $("#divloading").html("<img src='../../resources/Image/wait.gif' alt='Loading... Please Wait!'>");       
+                    $("#btnSubmit").hide();
+                    $.get("../../students/transaction/ApplyForScholarshipInner.jsp", val, function (data, status) {
+                        var message = mtrim(data);
+                        var messagevalue = "";
+                        if (message == "0") {
+                            messagevalue = "<div class='alert alert-error'>Error Occured while Applying for Scholarship</div>";
+                            $("#divloading").html(messagevalue);
+                            $("#btnSubmit").show();
+                        } else {
+                            messagevalue = "<br><br><br><div align='left' style='padding: 20px;color: #3f3d3d;background-color: #DFF2BF;'>" + message + " </div>";
+                            $("#divloading").html(messagevalue);                
+                        }
+                    }, "html");              
+                }
+            } catch (e) {
+            }
+        }
+    }
+
+    function mtrim(str) {
+        return str.replace(/^\s+|\s+$/g, '');
+    }
+
+    function isNumberKey(evt)
+    {
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+        return true;
+    }
+
+
+
+    function isNumberKeydot(evt, id)
+    {
+        try {
+            var charCode = (evt.which) ? evt.which : event.keyCode;
+            if (charCode == 46) {
+                var txt = document.getElementById(id).value;
+                if (!(txt.indexOf(".") > -1)) {
+
+                    return true;
+                }
+            }
+            if (charCode > 31 && (charCode < 48 || charCode > 57))
+                return false;
+            return true;
+        } catch (w) {
+            alert(w);
+        }
+    }
+
+    function Registrationdetails() {
+//        document.getElementById('scholarfrom').action = "/srmiststudentportal/";
+        document.getElementById('scholarfrom').method = "POST";
+        document.getElementById('scholarfrom').submit();
+    }
+
+    function ajaxloadfatheravail(arg) {
+        if (arg == "NotAlive") {
+            document.getElementById("fatheryearofdeath").style.display = '';
+        } else {
+            document.getElementById("fatheryearofdeath").style.display = "none";
+        }
+    }
+
+    function funOnchangeCategory(argValue) {
+        if (argValue != "") {
+            var applnparameter = [];
+            applnparameter.push({name: "resourceid", value: "1"});
+            applnparameter.push({name: "categoryid", value: argValue});
+            $("#subcategoryid").html("<img src='../../resources/Image/wait.gif' alt='Loading... Please Wait!'>");
+            $.post("../../students/transaction/loadApplyForScholarship.jsp", applnparameter, function (data, status) {
+                $("#subcategoryid").html(data);
+                $("#section").html("<option value='0'>SELECT</option>");
+                displaycategory(argValue);
+            }, "html");
+        }
+    }
+    function funOnchangeSubCategory(argValue) {
+        if (argValue != "") {
+            var applnparameter = [];
+            applnparameter.push({name: "resourceid", value: "2"});
+            applnparameter.push({name: "categoryid", value: $("#category").val()});
+            applnparameter.push({name: "subcategoryid", value: argValue});
+            $("#sectionid").html("<img src='../../resources/Image/wait.gif' alt='Loading... Please Wait!'>");
+            $.post("../../students/transaction/loadApplyForScholarship.jsp", applnparameter, function (data, status) {
+                $("#sectionid").html(data);
+                displaycategory(argValue);
+            }, "html");
+        }
+    }
+
+
+    function funOnchangetypedisability(argValue) {
+        if (argValue != "") {
+            if (argValue == 1) {
+                var applnparameter = [];
+                applnparameter.push({name: "resourceid", value: "3"});
+                applnparameter.push({name: "differentlyabled", value: arg});
+                $("#sectionid").html("<img src='../../resources/Image/wait.gif' alt='Loading... Please Wait!'>");
+                $.post("../../students/transaction/loadApplyForScholarship.jsp", applnparameter, function (data, status) {
+                    $("#typesdisabilityid").html(data);
+                    document.getElementById("typesdisability").disabled = false;
+                }, "html");
+            } else {
+                document.getElementById("typesdisability").innerHTML = "<option value='0'>SELECT</option>";
+                document.getElementById("percentdeformity").innerHTML = "<option value='0'>SELECT</option>";
+                document.getElementById("typesdisability").disabled = true;
+                document.getElementById("percentdeformity").disabled = true;
+            }
+        }
+    }
+
+    function funloaddeformitypercent(argValue) {
+        if (argValue != 0) {
+            var applnparameter = [];
+            applnparameter.push({name: "resourceid", value: "4"});
+            applnparameter.push({name: "differentlyabled", value: arg});
+            $("#sectionid").html("<img src='../../resources/Image/wait.gif' alt='Loading... Please Wait!'>");
+            $.post("../../students/transaction/loadApplyForScholarship.jsp", applnparameter, function (data, status) {
+                $("#percentdeformityid").html(data);
+            }, "html");
+        } else {
+            document.getElementById("percentdeformity").innerHTML = "<option value='0'>SELECT</option>";
+            document.getElementById("percentdeformity").disabled = true;
+        }
+    }
+
+</script>
+<form id="applyforscholarship" autocomplete="off">
+                 
+    <table cellpadding="0" cellspacing="1" width="100%" bgcolor="#CCCCCC" border="0">
+        <tbody><tr>
+            <td align="center">
+                <font color="red" size="4"> Service period deactivated</font>
+            </td>
+        </tr>
+    </tbody></table>
+              
+    <input type="hidden" name="hdncount" id="hdncount"> 
+    <input type="hidden" name="hdncategoryid" id="hdncategoryid"> 
+</form>
+<!--<form id="scholarfrom" target="_blank" name="scholarfrom" autocomplete="off" method="post" action="../../students/transaction/Applyscholarpdf.jsp" >  
+    <input name= "lanid" id="lanid" type="hidden" value="0"  /> 
+</form>-->
+
+
+</div>
+                    </main>
+                    <footer class="footer mt-auto footer-light">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-6 small"></div>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+            <input type="hidden" id="hdnFormStatus" name="hdnFormStatus" value="0">
+            <input type="hidden" id="hdnFormId" name="hdnFormId" value="1">
+            <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Logout</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span class="text-white" aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Are you sure to logout?
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-dark lift" type="button" data-dismiss="modal">Cancel</button>
+                            <a class="btn btn-custom lift" href="index.html">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <input type="hidden" id="hdnFilename" name="hdnFilename" value="">
+        </form>
+        <script src="./scholarship_files/bootstrap.bundle.min.js.download"></script>
+        <script src="./scholarship_files/jquery.easing.min.js.download"></script>
+        <script src="./scholarship_files/main.js.download"></script>                   
+    
+
+
+
+ </body></html>
